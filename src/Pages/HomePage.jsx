@@ -1,0 +1,159 @@
+import { Link } from "react-router-dom"
+
+export default function HomePage() {
+    return (
+        <div className="flex flex-col items-center gap-4">
+            <div className="flex fixed top-8 left-8">
+                <img className="w-14" src="gusta-logo.avif" alt="Website logo" />
+            </div>
+            <div className="py-32">
+                <h1 className="font-bold px-4 py-2 text-center text-4xl ">Forward Through Digital Design</h1>
+                <div className="bg-slate-400 w-full h-[624px]">
+                    {/* Insert Image here */}
+                </div>
+                <div className="flex flex-col py-20 px-10 text-4xl font-normal gap-8">
+                    <p>We are Gusta, a design studio rooted in craft, curosity, and care.</p>
+                    <p>We design Products, brands, and websites that people love, helping businesses thrive.</p>
+                </div>
+                <div className="flex flex-col px-8 gap-12">
+                    {/* Card 1 */}
+                    <div className="flex flex-col gap-6">
+                        <div className="bg-slate-400 w-full h-[350px] rounded-2xl">
+                            {/* Insert Image here */}
+                        </div>
+                        <div className="flex flex-col gap-6">
+                            <div className="flex flex-col gap-2">
+                                <h2 className="font-semibold text-2xl">Jeanologia</h2>
+                                <p className="text-xl text-gray-600">
+                                    End-to-end software suite for sustainable denim design and manufacturing
+                                </p>
+                            </div>
+                            <div>
+                                <Link className="flex flex-row gap-3 items-center">
+                                    <p className="text-xl font-semibold mt-1">View Case</p>
+                                    <p className="text-3xl">{`>`}</p>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                    {/* Card 2 */}
+                    <div className="flex flex-col gap-6">
+                        <div className="bg-slate-400 w-full h-[350px] rounded-2xl">
+                            {/* Insert Image here */}
+                        </div>
+                        <div className="flex flex-col gap-6">
+                            <div className="flex flex-col gap-2">
+                                <h2 className="font-semibold text-2xl">Oria</h2>
+                                <p className="text-xl text-gray-600">
+                                    Brand Identity and product design for a smarter way to power your home
+                                </p>
+                            </div>
+                            <div>
+                                <Link className="flex flex-row gap-3 items-center">
+                                    <p className="text-xl font-semibold mt-1">View Case</p>
+                                    <p className="text-3xl">{`>`}</p>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                    {/* Card 3 */}
+                    <div className="flex flex-col gap-6">
+                        <div className="bg-slate-400 w-full h-[350px] rounded-2xl">
+                            {/* Insert Image here */}
+                        </div>
+                        <div className="flex flex-col gap-6">
+                            <div className="flex flex-col gap-2">
+                                <h2 className="font-semibold text-2xl">Nixfarma</h2>
+                                <p className="text-xl text-gray-600">
+                                    Accessible, intelligent pharmacy management for pharmacists throughout Spain
+                                </p>
+                            </div>
+                            <div>
+                                <Link className="flex flex-row gap-3 items-center">
+                                    <p className="text-xl font-semibold mt-1">View Case</p>
+                                    <p className="text-3xl">{`>`}</p>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <Link className="flex relative pb-14 justify-center">
+                <img className="absolute -top-8 left-16 w-20 mb-20" src="https://framerusercontent.com/images/unH8JgbHJKTgSOwAqjiuOl5T4.png?width=300&height=351" alt="" />
+                <p className="bg-[#080a0c] text-3xl font-semibold rounded-[35px] text-white pt-20 pb-6 px-8">
+                    View all projects
+                </p>
+            </Link>
+            <div className="flex flex-col bg-[#ddf3f3] max-w-[350px] px-8 mx-4 rounded-3xl pt-12 items-center text-center justify-center">
+                <h1 className="text-[#0ba5bd] text-7xl">”</h1>
+                <p className="text-xl text-zinc-600">
+                    It's not just the end result that Gusta offers, it's how they are embedded in the project to maximize the value offered in the shortest possible time.
+                </p>
+                <div className="flex flex-col py-10 gap-6 items-center">
+                    <img className="rounded-full w-20" src="person-1.avif" alt="" />
+                    <div>
+                        <h2 className="font-semibold text-lg">José García de la Guía</h2>
+                        <p className="text-zinc-500">Port & Logistics IT Consultant</p>
+                    </div>
+                </div>
+            </div>
+            <div className="bg-[#fff1d6] flex flex-col max-w-[350px] rounded-3xl gap-12 py-8">
+                <h1 className="px-8 text-4xl font-bold text-center text-zinc-700">
+                    How can we help you?
+                </h1>
+                <div className="flex flex-col gap-4">
+                    <h2 className="pl-8">Choose what fit your needs</h2>
+                    <div className="flex flex-col px-2 gap-2">
+                        <button className="bg-white p-2 max-w-80 rounded-xl text-left font-semibold">
+                            Our product needs to be more intuitive
+                        </button>
+                        <button className="bg-white p-2 max-w-56 rounded-xl text-left font-semibold">
+                            We need a consistent look and feel across our products
+                        </button>
+                        <button className="bg-white p-2 max-w-80 rounded-xl text-left font-semibold">
+                            Our product needs a new UX/UI design
+                        </button>
+                        <button className="bg-white p-2 max-w-80 rounded-xl text-left font-semibold">
+                            Our brand needs to reflect who we are
+                        </button>
+                        <button className="bg-white p-2 max-w-56 rounded-xl text-left font-semibold">
+                            We need compelling visuals to bring our brand to life
+                        </button>
+                        <button className="bg-white p-2 max-w-48 rounded-xl text-left font-semibold">
+                            We need a new website
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div className="flex flex-col w-full pt-14">
+                <div className="bg-slate-400 w-full h-[350px]">
+                    {/* Insert Image here */}
+                </div>
+                <div className="flex flex-col items-center py-10 gap-6">
+                    <h2 className="text-3xl font-normal px-6 text-center">
+                        We're the creative link between people, business, and technology.
+                    </h2>
+                    <button className="bg-black text-white rounded-3xl px-5 py-3 font-semibold">
+                        Our expertise
+                    </button>
+                </div>
+                <div className="bg-slate-400 w-full h-[350px]">
+                    {/* Insert Image here */}
+                </div>
+            </div>
+            <div className="flex flex-col pt-10 items-center gap-10">
+                <img className="w-64 h-40 rounded-3xl items-center" src="get-to-know-us-1.avif" alt="" />
+                <div className="flex flex-col items-start px-6 gap-10">
+                    <h2 className="text-3xl">We’re a small team of versatile creatives, committed to doing good work while having fun.</h2>
+                    <button className="bg-black text-white text-xl rounded-3xl px-5 py-3 font-semibold">
+                        Get to know us
+                    </button>
+                </div>
+                <div className="flex relative items-end justify-end w-full px-8">
+                    <img className="w-44 rounded-2xl" src="get-to-know-us-2.avif" alt="" />
+                    <img className="absolute w-28 -bottom-8 right-32" src="https://framerusercontent.com/images/X1NF4nBj3ynPnt5C5wXPCQ1AU.png?width=270&height=209" alt="" />
+                </div>
+            </div>
+        </div>
+    )
+}
