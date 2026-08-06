@@ -2,8 +2,8 @@ import { Link } from "react-router-dom"
 
 export default function HomePage() {
     return (
-        <div className="flex flex-col items-center gap-4">
-            <div className="flex fixed top-8 left-8">
+        <div className="flex flex-col items-center">
+            <div className="flex fixed z-40 top-8 left-8">
                 <img className="w-14" src="gusta-logo.avif" alt="Website logo" />
             </div>
             <div className="py-32">
@@ -78,7 +78,7 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
-            <Link className="flex relative pb-14 justify-center">
+            <Link className="flex relative pb-14 py-4 justify-center">
                 <img className="absolute -top-8 left-16 w-20 mb-20" src="https://framerusercontent.com/images/unH8JgbHJKTgSOwAqjiuOl5T4.png?width=300&height=351" alt="" />
                 <p className="bg-[#080a0c] text-3xl font-semibold rounded-[35px] text-white pt-20 pb-6 px-8">
                     View all projects
@@ -97,7 +97,7 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
-            <div className="bg-[#fff1d6] flex flex-col max-w-[350px] rounded-3xl gap-12 py-8">
+            <div className="bg-[#fff1d6] flex flex-col max-w-[350px] rounded-3xl gap-12 mt-8 py-8">
                 <h1 className="px-8 text-4xl font-bold text-center text-zinc-700">
                     How can we help you?
                 </h1>
@@ -156,9 +156,35 @@ export default function HomePage() {
                 <div className="bg-[#fcc113] relative flex flex-col py-10 pl-6 pr-10 gap-8">
                     <h2 className="text-3xl">Stay connected with updates, insights, and inspiration.</h2>
                     <div className="bg-slate-400 w-[250px] h-[450px] rounded-xl">
-
+                        {/* Insert video here */}
                     </div>
-                    <img className="absolute w-28 -bottom-11 right-6" src="https://framerusercontent.com/images/pqmEbEHZ6IodkvP01Yoz5uBYu9U.png?width=2704&height=2133" alt="" />
+                </div>
+            </div>
+            <div className="relative flex flex-col py-10 px-6 gap-6 text-center bg-[#fff1d6]">
+                <img className="absolute w-28 -top-11 right-6" src="https://framerusercontent.com/images/pqmEbEHZ6IodkvP01Yoz5uBYu9U.png?width=2704&height=2133" alt="" />
+                <h2 className="text-4xl font-semibold">The Socarrat</h2>
+                <p className="text-lg px-6">Our newsletter with a digestible selection of inspiring finds. Sent every month, from our screen to yours.</p>
+                <div className="flex flex-row gap-6 justify-center items-center">
+                    <button className="bg-black text-white text-lg font-bold px-6 py-3 rounded-3xl">
+                        Subscribe
+                    </button>
+                    <Link className="flex flex-row text-xl gap-4">
+                        <p className="font-semibold">Archive</p>
+                        <p>{`>`}</p>
+                    </Link>
+                </div>
+            </div>
+            <div className="flex flex-col w-full py-14 bg-black">
+                <div className="flex flex-col items-center gap-12">
+                    <div className="flex flex-col items-center text-center gap-4">
+                        <img className="bg-white w-24 h-24 rounded-full">
+                            {/* Insert Image here */}
+                        </img>
+                        <p className="text-3xl font-semibold text-white px-8">Ready to move forward?Let's work together!</p>
+                    </div>
+                    <Link className="bg-[#0ba5bd] text-2xl text-white px-10 py-6 rounded-full font-semibold">
+                        Contact us
+                    </Link>
                 </div>
             </div>
         </div>
