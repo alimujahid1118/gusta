@@ -153,6 +153,13 @@ export default function HomePage() {
                     <img className="w-44 rounded-2xl" src="get-to-know-us-2.avif" alt="" />
                     <img className="absolute w-28 -bottom-8 right-32" src="https://framerusercontent.com/images/X1NF4nBj3ynPnt5C5wXPCQ1AU.png?width=270&height=209" alt="" />
                 </div>
+                <div className="bg-[#fcc113] relative flex flex-col py-10 pl-6 pr-10 gap-8">
+                    <h2 className="text-3xl">Stay connected with updates, insights, and inspiration.</h2>
+                    <div className="bg-slate-400 w-[250px] h-[450px] rounded-xl">
+
+                    </div>
+                    <img className="absolute w-28 -bottom-11 right-6" src="https://framerusercontent.com/images/pqmEbEHZ6IodkvP01Yoz5uBYu9U.png?width=2704&height=2133" alt="" />
+                </div>
             </div>
         </div>
     )
