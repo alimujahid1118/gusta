@@ -83,7 +83,7 @@ export default function HomePage() {
                 </div>
             </div>
             <Link className="flex relative pb-14 py-4 justify-center">
-                <img className="absolute -top-8 left-16 md:left-[500px] w-20 mb-20" src="https://framerusercontent.com/images/unH8JgbHJKTgSOwAqjiuOl5T4.png?width=300&height=351" alt="" />
+                <img className="absolute -top-8 left-28 md:left-[500px] w-20 mb-20" src="https://framerusercontent.com/images/unH8JgbHJKTgSOwAqjiuOl5T4.png?width=300&height=351" alt="" />
                 <p className="bg-[#080a0c] text-3xl font-semibold rounded-[35px] text-white pt-20 pb-6 px-8 md:px-14">
                     View all projects
                 </p>
@@ -103,7 +103,7 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
-            <div className="bg-[#fff1d6] flex flex-col max-w-[350px] md:max-w-[750px] mx-14 rounded-3xl gap-12 mt-8 md:ml-[450px] py-8">
+            <div className="bg-[#fff1d6] flex flex-col max-w-[350px] md:max-w-[750px] mx-10 rounded-3xl gap-12 mt-8 md:ml-[450px] py-8">
                 <h1 className="px-8 md:px-36 text-4xl font-bold text-center text-zinc-700">
                     How can we help you?
                 </h1>
