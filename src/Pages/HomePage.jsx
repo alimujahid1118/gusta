@@ -6,16 +6,16 @@ export default function HomePage() {
     const [ menuBox, setMenuBox ] = useState(false);
 
     return (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col">
             <div className="flex fixed z-40 top-8 left-8">
                 <img className="w-14" src="gusta-logo.avif" alt="Website logo" />
             </div>
             <div className="flex flex-col py-32 items-center">
-                <h1 className="font-bold px-4 py-2 text-center text-4xl max-w-[400px]">Forward Through Digital Design</h1>
+                <h1 className="font-bold px-4 py-2 text-center text-4xl md:text-7xl md:max-w-[700px] max-w-[400px]">Forward Through Digital Design</h1>
                 <div className="bg-slate-400 w-full h-[624px]">
                     {/* Insert Image here */}
                 </div>
-                <div className="flex flex-col py-20 px-10 text-4xl font-normal gap-8">
+                <div className="flex flex-col py-20 px-10 md:text-center md:px-64 text-4xl md:text-5xl font-normal gap-8 md:gap-14">
                     <p>We are Gusta, a design studio rooted in craft, curosity, and care.</p>
                     <p>We design Products, brands, and websites that people love, helping businesses thrive.</p>
                 </div>
@@ -83,47 +83,49 @@ export default function HomePage() {
                 </div>
             </div>
             <Link className="flex relative pb-14 py-4 justify-center">
-                <img className="absolute -top-8 left-16 w-20 mb-20" src="https://framerusercontent.com/images/unH8JgbHJKTgSOwAqjiuOl5T4.png?width=300&height=351" alt="" />
-                <p className="bg-[#080a0c] text-3xl font-semibold rounded-[35px] text-white pt-20 pb-6 px-8">
+                <img className="absolute -top-8 left-16 md:left-[500px] w-20 mb-20" src="https://framerusercontent.com/images/unH8JgbHJKTgSOwAqjiuOl5T4.png?width=300&height=351" alt="" />
+                <p className="bg-[#080a0c] text-3xl font-semibold rounded-[35px] text-white pt-20 pb-6 px-8 md:px-14">
                     View all projects
                 </p>
             </Link>
-            <div className="flex flex-col bg-[#ddf3f3] max-w-[350px] px-8 mx-4 rounded-3xl pt-12 items-center text-center justify-center">
-                <h1 className="text-[#0ba5bd] text-7xl">”</h1>
-                <p className="text-xl text-zinc-600">
-                    It's not just the end result that Gusta offers, it's how they are embedded in the project to maximize the value offered in the shortest possible time.
-                </p>
-                <div className="flex flex-col py-10 gap-6 items-center">
-                    <img className="rounded-full w-20" src="person-1.avif" alt="" />
-                    <div>
-                        <h2 className="font-semibold text-lg">José García de la Guía</h2>
-                        <p className="text-zinc-500">Port & Logistics IT Consultant</p>
+            <div className="flex flex-col w-full md:pl-64 items-center text-center justify-center md:items-start md:justify-start">
+                <div className="flex flex-col bg-[#ddf3f3] max-w-[350px] md:max-w-[450px] px-8 mx-4 rounded-3xl md:rounded-[80px] pt-12">
+                    <h1 className="text-[#0ba5bd] text-7xl">”</h1>
+                    <p className="text-xl text-zinc-600">
+                        It's not just the end result that Gusta offers, it's how they are embedded in the project to maximize the value offered in the shortest possible time.
+                    </p>
+                    <div className="flex flex-col py-10 gap-6 items-center">
+                        <img className="rounded-full w-20" src="person-1.avif" alt="" />
+                        <div>
+                            <h2 className="font-semibold text-lg">José García de la Guía</h2>
+                            <p className="text-zinc-500">Port & Logistics IT Consultant</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className="bg-[#fff1d6] flex flex-col max-w-[350px] rounded-3xl gap-12 mt-8 py-8">
-                <h1 className="px-8 text-4xl font-bold text-center text-zinc-700">
+            <div className="bg-[#fff1d6] flex flex-col max-w-[350px] md:max-w-[550px] mx-20 rounded-3xl gap-12 mt-8 md:ml-[450px] py-8">
+                <h1 className="px-8 md:px-36 text-4xl font-bold text-center text-zinc-700">
                     How can we help you?
                 </h1>
                 <div className="flex flex-col gap-4">
-                    <h2 className="pl-8">Choose what fit your needs</h2>
-                    <div className="flex flex-col px-2 gap-2">
-                        <button className="bg-white p-2 max-w-80 rounded-xl text-left font-semibold">
+                    <h2 className="pl-8 md:text-xl">Choose what fit your needs</h2>
+                    <div className="flex flex-col px-2 md:px-6 gap-2 md:text-xl">
+                        <button className="bg-white p-2 md:p-4 max-w-80 md:max-w-[400px] rounded-xl text-left font-semibold">
                             Our product needs to be more intuitive
                         </button>
-                        <button className="bg-white p-2 max-w-56 rounded-xl text-left font-semibold">
+                        <button className="bg-white p-2 md:p-4 max-w-56 md:max-w-[300px] rounded-xl text-left font-semibold">
                             We need a consistent look and feel across our products
                         </button>
-                        <button className="bg-white p-2 max-w-80 rounded-xl text-left font-semibold">
+                        <button className="bg-white p-2 md:p-4 max-w-80 md:max-w-[400px] rounded-xl text-left font-semibold">
                             Our product needs a new UX/UI design
                         </button>
-                        <button className="bg-white p-2 max-w-80 rounded-xl text-left font-semibold">
+                        <button className="bg-white p-2 md:p-4 max-w-80 md:max-w-[400px] rounded-xl text-left font-semibold">
                             Our brand needs to reflect who we are
                         </button>
-                        <button className="bg-white p-2 max-w-56 rounded-xl text-left font-semibold">
+                        <button className="bg-white p-2 md:p-4 max-w-56 md:max-w-[370px] rounded-xl text-left font-semibold">
                             We need compelling visuals to bring our brand to life
                         </button>
-                        <button className="bg-white p-2 max-w-48 rounded-xl text-left font-semibold">
+                        <button className="bg-white p-2 md:p-4 max-w-48 md:max-w-64 rounded-xl text-left font-semibold">
                             We need a new website
                         </button>
                     </div>
@@ -134,11 +136,11 @@ export default function HomePage() {
                     {/* Insert Image here */}
                 </div>
                 <div className="flex flex-col items-center justify-center text-center">
-                    <div className="flex flex-col items-center py-10 gap-6 max-w-[350px]">
-                        <h2 className="text-3xl font-normal px-6 text-center">
+                    <div className="flex flex-col items-center py-10 gap-6 max-w-[350px] md:max-w-[750px]">
+                        <h2 className="text-3xl md:text-4xl font-normal px-6 text-center">
                             We're the creative link between people, business, and technology.
                         </h2>
-                        <button className="bg-black text-white rounded-3xl px-5 py-3 font-semibold">
+                        <button className="bg-black text-white rounded-3xl md:rounded-[40px] md:text-xl px-5 md:px-10 py-3 md:py-4 font-semibold md:font-bold">
                             Our expertise
                         </button>
                     </div>
@@ -159,7 +161,7 @@ export default function HomePage() {
                     <img className="w-44 rounded-2xl" src="get-to-know-us-2.avif" alt="" />
                     <img className="absolute w-28 -bottom-8 right-32" src="https://framerusercontent.com/images/X1NF4nBj3ynPnt5C5wXPCQ1AU.png?width=270&height=209" alt="" />
                 </div>
-                <div className="bg-[#fcc113] relative flex flex-col py-10 pl-6 pr-10 gap-8">
+                <div className="bg-[#fcc113] relative flex flex-col w-full py-10 pl-6 pr-10 gap-8">
                     <h2 className="text-3xl pr-44 font-semibold">Stay connected with updates, insights, and inspiration.</h2>
                     <div className="bg-slate-400 w-[250px] h-[450px] rounded-xl">
                         {/* Insert video here */}
@@ -257,28 +259,43 @@ export default function HomePage() {
                 </div>
             </div>
             {/* Menu */}
-            <div onClick={() => setMenuBox((prev) => !prev)} className="fixed z-50 bottom-6">
-                <div className={menuBox? `bg-[#d6dcd3bf] z-50 px-4 py-3 rounded-full transition-all duration-500 delay-300` : `bg-white z-50 shadow-xl px-4 py-3 rounded-full`}>
-                    <i className="fi fi-rr-plus text-3xl z-50"></i>
+            <div
+                onClick={() => setMenuBox(prev => !prev)}
+                className="fixed z-50 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 bottom-6 md:top-9 md:right-12"
+                >
+                <div
+                    className={`z-50 px-4 py-3 rounded-full transition-all duration-500 ${
+                    menuBox
+                        ? "bg-[#d6dcd3bf] md:bg-zinc-700 md:text-white"
+                        : "bg-white md:bg-[#e7efe3bf] shadow-xl md:shadow-none"
+                    }`}
+                >
+                    <span
+                    className={`inline-block transition-transform duration-300 ${
+                        menuBox ? "-rotate-45" : "rotate-0"
+                    }`}
+                    >
+                    <i className="fi fi-rr-plus text-3xl md:text-[35px]"></i>
+                    </span>
                 </div>
             </div>
             {/* Menu box */}
             {
                 menuBox && (
-                    <div className="flex flex-col bg-white rounded-3xl z-40 fixed bottom-2">
-                        <div className="flex flex-col gap-3 px-24 pt-10 text-4xl">
+                    <div className="flex flex-col bg-white md:bg-black rounded-3xl md:rounded-[40px] z-40 fixed left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 shadow-xl bottom-2 md:right-11 md:top-8">
+                        <div className="flex flex-col md:text-white md:items-start md:pl-10 md:pr-40 gap-3 px-24 pt-10 text-4xl md:text-5xl">
                             <button>Home</button>
                             <button>Work</button>
                             <button>Services</button>
                             <button>About</button>
                             <button>Contact</button>
                         </div>
-                        <div className="flex flex-col gap-2 text-[#5e605cbf] py-8 items-center text-md">
+                        <div className="flex flex-col gap-2 text-[#5e605cbf] md:text-[#868984bf] py-8 items-center md:items-start md:px-10 text-md">
                             <button>Playground</button>
                             <button>Shop</button>
                             <button>Newsletter</button>
                         </div>
-                        <div className="flex flex-row gap-4 text-[#5e605cbf] text-2xl justify-center pb-24">
+                        <div className="flex flex-row gap-4 text-[#5e605cbf] md:text-[#868984bf] text-2xl md:text-3xl justify-center md:justify-end md:px-12 pb-24">
                             <i className="fi fi-brands-instagram"></i>
                             <i className="fi fi-brands-behance"></i>
                             <i className="fi fi-brands-linkedin"></i>
