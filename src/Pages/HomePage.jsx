@@ -162,7 +162,7 @@ export default function HomePage() {
                     <img className="absolute w-28 -bottom-8 right-32" src="https://framerusercontent.com/images/X1NF4nBj3ynPnt5C5wXPCQ1AU.png?width=270&height=209" alt="" />
                 </div>
                 <div className="bg-[#fcc113] relative flex flex-col w-full py-10 pl-6 pr-10 gap-8">
-                    <h2 className="text-3xl pr-44 font-semibold">Stay connected with updates, insights, and inspiration.</h2>
+                    <h2 className="text-3xl pr-36 font-semibold">Stay connected with updates, insights, and inspiration.</h2>
                     <div className="bg-slate-400 w-[250px] h-[450px] rounded-xl">
                         {/* Insert video here */}
                     </div>
