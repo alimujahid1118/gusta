@@ -103,7 +103,7 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
-            <div className="bg-[#fff1d6] flex flex-col max-w-[350px] md:max-w-[650px] mx-14 rounded-3xl gap-12 mt-8 md:ml-[450px] py-8">
+            <div className="bg-[#fff1d6] flex flex-col max-w-[350px] md:max-w-[750px] mx-14 rounded-3xl gap-12 mt-8 md:ml-[450px] py-8">
                 <h1 className="px-8 md:px-36 text-4xl font-bold text-center text-zinc-700">
                     How can we help you?
                 </h1>
