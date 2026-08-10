@@ -58,7 +58,8 @@ export default function HomePage() {
             </div>
             <div className="flex flex-col py-32 items-center overflow-x-hidden">
                 <h1 className="font-bold px-4 py-2 text-center text-4xl md:text-7xl md:max-w-[700px] max-w-[400px]">Forward Through Digital Design</h1>
-                <div className="w-full h-[624px] relative">
+                {/* Mobile */}
+                <div className="w-full h-[624px] relative md:hidden">
                     <div id="content1" className="opacity-0 absolute left-1/2 -translate-x-1/2 w-[550px] h-[624px]">
                         <video className="w-52 absolute -rotate-3 -left-[3%] top-[300px] rounded-xl" src="https://framerusercontent.com/assets/lLvZTmIKfLwL7G5qVBUXGdhQo.mp4" preload="auto" autoPlay loop muted poster="https://framerusercontent.com/images/dZrjOw82qYCOxUCOashJHT8oaZY.png?width=360&height=640"></video>
                         <img className="absolute top-[400px] -right-12 rotate-3 w-96 h-64 rounded-3xl" src="https://framerusercontent.com/images/qYVaoPHzFIbni6dJOLvx5SAlYGk.png?scale-down-to=1024&width=960&height=1120 877w,https://framerusercontent.com/images/qYVaoPHzFIbni6dJOLvx5SAlYGk.png?width=960&height=1120 960w" alt="" />
@@ -88,80 +89,279 @@ export default function HomePage() {
                         <img className="w-28 rotate-6 absolute bottom-10 left-60" src="https://framerusercontent.com/images/lwjDF4oM1o8BkiG9VVrRLUQzik8.png?width=483&height=420" alt="" />
                     </div>
                 </div>
+                <div className="hidden md:block w-full max-w-[1200px] h-[900px] mx-auto py-20">
+                    <div className="relative w-full aspect-[16/9] rounded-[40px]">
+                        <img
+                            className="absolute w-[400px] rounded-3xl rotate-6 top-10 -left-12"
+                            src="https://framerusercontent.com/images/yq0IGMMzJtKXkVuRq470oUtnM0.jpg?width=1000&height=740"
+                            alt=""
+                        />
+                        <img
+                            className="absolute w-[280px] rounded-3xl -rotate-3 top-28 right-40"
+                            src="https://framerusercontent.com/images/MrtB1IFGvmEkWTjmnuvYcOHSgM.jpg?width=660&height=560"
+                            alt=""
+                        />
+                        <video
+                            className="absolute w-[250px] rounded-3xl -rotate-3 top-[300px] -left-8"
+                            src="https://framerusercontent.com/assets/lLvZTmIKfLwL7G5qVBUXGdhQo.mp4"
+                            autoPlay
+                            loop
+                            muted
+                        />
+                        <img
+                            className="absolute w-[280px] rounded-3xl rotate-3 top-[380px] left-[360px]"
+                            src="https://framerusercontent.com/images/qYVaoPHzFIbni6dJOLvx5SAlYGk.png?width=960&height=1120"
+                            alt=""
+                        />
+                        <img
+                            className="absolute w-[180px] rounded-full rotate-6 top-8 left-[380px]"
+                            src="https://framerusercontent.com/images/VxoTEviyPKo09XuXJigjmmaPcsc.jpg?width=640&height=920"
+                            alt=""
+                        />
+                        <video
+                            className="absolute w-[220px] rounded-3xl rotate-6 top-[240px] left-[550px]"
+                            src="https://framerusercontent.com/assets/8zqBjfXanNa1XpaIzKT2PW75ak.mp4"
+                            autoPlay
+                            loop
+                            muted
+                        />
+                        <img
+                            className="absolute w-[180px] rounded-3xl rotate-12 bottom-10 left-[200px]"
+                            src="https://framerusercontent.com/images/KUhX8gQK2Ytrp1MlkqgmwCHhH0.jpg?width=643&height=840"
+                            alt=""
+                        />
+                        <video
+                            className="absolute w-[240px] rounded-3xl -rotate-6 top-[100px] -right-8"
+                            src="https://framerusercontent.com/assets/laGrVxebPqdjgUpnNzPB5d4vfE.mp4"
+                            autoPlay
+                            loop
+                            muted
+                        />
+                        <img
+                            className="absolute w-[230px] rounded-3xl -rotate-6 -bottom-12 right-0"
+                            src="https://framerusercontent.com/images/xPkMQNqVicuf9ASIlzKvbEcUDY.jpg?width=1040&height=920"
+                            alt=""
+                        />
+                        <img
+                            className="absolute w-[220px] rounded-[50px] rotate-6 -bottom-14 right-[330px]"
+                            src="https://framerusercontent.com/images/EFvgHvy3aSaDGW9vcn7sDmvsg.png?width=1040&height=1040"
+                            alt=""
+                        />
+                        <video
+                            className="absolute w-[210px] rounded-3xl rotate-3 top-[350px] right-[220px]"
+                            src="https://framerusercontent.com/assets/j44HvIGeouTMmh0w41xzipuF9o.mp4"
+                            autoPlay
+                            loop
+                            muted
+                        />
+                        <video
+                            className="absolute w-[250px] rounded-3xl -rotate-3 top-8 right-[380px]"
+                            src="https://framerusercontent.com/assets/9ly0T7RZY6WBkHqlwQvZBOUnR3w.mp4"
+                            autoPlay
+                            loop
+                            muted
+                        />
+                        <img
+                            className="absolute w-32 rotate-6 top-[280px] left-[400px]"
+                            src="https://framerusercontent.com/images/70EAw0GRWLLWf2k7oi1sth6rVY.png?width=750&height=630"
+                            alt=""
+                        />
+
+                    </div>
+                </div>
                 <div className="flex flex-col py-20 px-10 md:text-center md:px-64 text-4xl md:text-5xl font-normal gap-8 md:gap-14">
                     <p>We are Gusta, a design studio rooted in craft, curosity, and care.</p>
                     <p>We design Products, brands, and websites that people love, helping businesses thrive.</p>
                 </div>
-                <div className="flex flex-col px-8 gap-12">
-                    {/* Card 1 */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 px-8 md:px-12">
+
+                    {/* Jeanologia */}
                     <div className="flex flex-col gap-6">
-                        <div className="w-full relative rounded-2xl">
-                            <button className="absolute left-4 top-2 text-white text-sm font-semibold bg-black/15 rounded-md px-4 pt-1 pb-2">Product</button>
-                            <button className="absolute left-[100px] top-2 text-white text-sm font-semibold bg-black/15 rounded-2xl px-4 pt-1 pb-2">Fashion</button>
-                            <video className="rounded-3xl w-[400px]" loop autoPlay muted src="https://framerusercontent.com/assets/Py00ZrwZ0EZGP6Q4CS68uI.mp4"></video>
+                        <div className="relative w-full rounded-3xl overflow-hidden">
+                            <div className="absolute z-10 left-4 top-3 flex gap-2">
+                                <button className="text-white text-sm font-semibold bg-black/20 backdrop-blur-sm rounded-md px-4 py-2">
+                                    Product
+                                </button>
+                                <button className="text-white text-sm font-semibold bg-black/20 backdrop-blur-sm rounded-md px-4 py-2">
+                                    Fashion
+                                </button>
+                            </div>
+
+                            <video
+                                className="w-full aspect-[4/3] object-cover rounded-3xl"
+                                loop
+                                autoPlay
+                                muted
+                                src="https://framerusercontent.com/assets/Py00ZrwZ0EZGP6Q4CS68uI.mp4"
+                            />
                         </div>
+
                         <div className="flex flex-col gap-6">
                             <div className="flex flex-col gap-2">
-                                <h2 className="font-semibold text-2xl">Jeanologia</h2>
+                                <h2 className="font-semibold text-2xl">
+                                    Jeanologia
+                                </h2>
+
                                 <p className="text-xl text-gray-600">
-                                    End-to-end software suite for sustainable denim design and manufacturing
+                                    End-to-end software suite for sustainable denim
+                                    design and manufacturing
                                 </p>
                             </div>
-                            <div>
-                                <Link className="flex flex-row gap-3 items-center">
-                                    <p className="text-xl font-semibold mt-1">View Case</p>
-                                    <p className="text-3xl">{`>`}</p>
-                                </Link>
-                            </div>
+
+                            <Link className="flex items-center gap-3">
+                                <p className="text-xl font-semibold">
+                                    View Case
+                                </p>
+                                <p className="text-3xl">
+                                    {`>`}
+                                </p>
+                            </Link>
                         </div>
                     </div>
-                    {/* Card 2 */}
+
+
+                    {/* Oria */}
                     <div className="flex flex-col gap-6">
-                        <div className="w-full relative rounded-2xl">
-                            <button className="absolute left-4 top-2 text-white text-sm font-semibold bg-black/15 rounded-md px-4 pt-1 pb-2">Product</button>
-                            <button className="absolute left-[100px] top-2 text-white text-sm font-semibold bg-black/15 rounded-md px-4 pt-1 pb-2">Brand</button>
-                            <button className="absolute left-[170px] top-2 text-white text-sm font-semibold bg-black/15 rounded-2xl px-4 pt-1 pb-2">Energy</button>
-                            <video className="rounded-3xl w-[400px]" loop autoPlay muted src="https://framerusercontent.com/assets/eKyUB6C9K7bxBl9Ftxm79pHkkKM.mp4"></video>
+                        <div className="relative w-full rounded-3xl overflow-hidden">
+                            <div className="absolute z-10 left-4 top-3 flex gap-2">
+                                <button className="text-white text-sm font-semibold bg-black/20 backdrop-blur-sm rounded-md px-4 py-2">
+                                    Product
+                                </button>
+
+                                <button className="text-white text-sm font-semibold bg-black/20 backdrop-blur-sm rounded-md px-4 py-2">
+                                    Brand
+                                </button>
+
+                                <button className="text-white text-sm font-semibold bg-black/20 backdrop-blur-sm rounded-md px-4 py-2">
+                                    Energy
+                                </button>
+                            </div>
+
+                            <video
+                                className="w-full aspect-[4/3] object-cover rounded-3xl"
+                                loop
+                                autoPlay
+                                muted
+                                src="https://framerusercontent.com/assets/eKyUB6C9K7bxBl9Ftxm79pHkkKM.mp4"
+                            />
                         </div>
+
                         <div className="flex flex-col gap-6">
                             <div className="flex flex-col gap-2">
-                                <h2 className="font-semibold text-2xl">Oria</h2>
+                                <h2 className="font-semibold text-2xl">
+                                    Oria
+                                </h2>
+
                                 <p className="text-xl text-gray-600">
-                                    Brand Identity and product design for a smarter way to power your home
+                                    Brand identity and product design for a smarter
+                                    way to power your home
                                 </p>
                             </div>
-                            <div>
-                                <Link className="flex flex-row gap-3 items-center">
-                                    <p className="text-xl font-semibold mt-1">View Case</p>
-                                    <p className="text-3xl">{`>`}</p>
-                                </Link>
-                            </div>
+
+                            <Link className="flex items-center gap-3">
+                                <p className="text-xl font-semibold">
+                                    View Case
+                                </p>
+                                <p className="text-3xl">
+                                    {`>`}
+                                </p>
+                            </Link>
                         </div>
                     </div>
-                    {/* Card 3 */}
+
+
+                    {/* Nixfarma */}
                     <div className="flex flex-col gap-6">
-                        <div className="bg-slate-400 w-full relative rounded-2xl">
-                            <button className="absolute left-4 top-2 text-white text-sm font-semibold bg-transparent/50 rounded-md px-4 pt-1 pb-2">Product</button>
-                            <button className="absolute left-[100px] top-2 text-white text-sm font-semibold bg-transparent/50 rounded-2xl px-4 pt-1 pb-2">Pharmaceutical</button>
-                            <img className="rounded-3xl w-[400px]" src="https://framerusercontent.com/images/pNWmvtzGxBYfK36LNtnBwyHuY.png?width=1080&height=1350" />
+                        <div className="relative w-full rounded-3xl overflow-hidden">
+                            <div className="absolute z-10 left-4 top-3 flex gap-2">
+                                <button className="text-white text-sm font-semibold bg-black/20 backdrop-blur-sm rounded-md px-4 py-2">
+                                    Product
+                                </button>
+
+                                <button className="text-white text-sm font-semibold bg-black/20 backdrop-blur-sm rounded-md px-4 py-2">
+                                    Pharmaceutical
+                                </button>
+                            </div>
+
+                            <img
+                                className="w-full aspect-[4/3] object-cover rounded-3xl"
+                                src="https://framerusercontent.com/images/pNWmvtzGxBYfK36LNtnBwyHuY.png?width=1080&height=1350"
+                                alt="Nixfarma"
+                            />
                         </div>
+
                         <div className="flex flex-col gap-6">
                             <div className="flex flex-col gap-2">
-                                <h2 className="font-semibold text-2xl">Nixfarma</h2>
+                                <h2 className="font-semibold text-2xl">
+                                    Nixfarma
+                                </h2>
+
                                 <p className="text-xl text-gray-600">
-                                    Accessible, intelligent pharmacy management for pharmacists throughout Spain
+                                    Accessible, intelligent pharmacy management
+                                    for pharmacists throughout Spain
                                 </p>
                             </div>
-                            <div>
-                                <Link className="flex flex-row gap-3 items-center">
-                                    <p className="text-xl font-semibold mt-1">View Case</p>
-                                    <p className="text-3xl">{`>`}</p>
-                                </Link>
-                            </div>
+
+                            <Link className="flex items-center gap-3">
+                                <p className="text-xl font-semibold">
+                                    View Case
+                                </p>
+                                <p className="text-3xl">
+                                    {`>`}
+                                </p>
+                            </Link>
                         </div>
                     </div>
+
+
+                    {/* Project 4 */}
+                    <div className="flex flex-col gap-6">
+                        <div className="relative w-full rounded-3xl overflow-hidden">
+                            <div className="absolute z-10 left-4 top-3 flex gap-2">
+                                <button className="text-white text-sm font-semibold bg-black/20 backdrop-blur-sm rounded-md px-4 py-2">
+                                    Product
+                                </button>
+
+                                <button className="text-white text-sm font-semibold bg-black/20 backdrop-blur-sm rounded-md px-4 py-2">
+                                    Technology
+                                </button>
+                            </div>
+
+                            <video
+                                className="w-full aspect-[4/3] object-cover rounded-3xl"
+                                loop
+                                autoPlay
+                                muted
+                                src="https://framerusercontent.com/assets/Py00ZrwZ0EZGP6Q4CS68uI.mp4"
+                            />
+                        </div>
+
+                        <div className="flex flex-col gap-6">
+                            <div className="flex flex-col gap-2">
+                                <h2 className="font-semibold text-2xl">
+                                    Project Four
+                                </h2>
+
+                                <p className="text-xl text-gray-600">
+                                    Digital product experience designed to make
+                                    complex technology simple and accessible
+                                </p>
+                            </div>
+
+                            <Link className="flex items-center gap-3">
+                                <p className="text-xl font-semibold">
+                                    View Case
+                                </p>
+                                <p className="text-3xl">
+                                    {`>`}
+                                </p>
+                            </Link>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+            
             <Link className="flex relative pb-14 py-4 justify-center">
                 <img className="absolute -top-8 left-28 md:left-[500px] w-20 mb-20" src="https://framerusercontent.com/images/unH8JgbHJKTgSOwAqjiuOl5T4.png?width=300&height=351" alt="" />
                 <p className="bg-[#080a0c] text-3xl font-semibold rounded-[35px] text-white pt-20 pb-6 px-8 md:px-14">
