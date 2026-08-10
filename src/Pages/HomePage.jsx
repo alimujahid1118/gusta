@@ -43,6 +43,14 @@ export default function HomePage() {
         return () => tl.kill()
     }, [])
 
+    const handleEnter = () => {
+        gsap.to("#paragraph", {
+            backgroundColor: "#fff1d6",
+            duration: 0.5,
+            overwrite:true
+        })
+    }
+
     return (
         <div className="flex flex-col">
             <div className="flex fixed z-40 top-8 left-8">
@@ -87,8 +95,10 @@ export default function HomePage() {
                 <div className="flex flex-col px-8 gap-12">
                     {/* Card 1 */}
                     <div className="flex flex-col gap-6">
-                        <div className="bg-slate-400 w-full h-[350px] rounded-2xl">
-                            {/* Insert Image here */}
+                        <div className="w-full relative rounded-2xl">
+                            <button className="absolute left-4 top-2 text-white text-sm font-semibold bg-black/15 rounded-md px-4 pt-1 pb-2">Product</button>
+                            <button className="absolute left-[100px] top-2 text-white text-sm font-semibold bg-black/15 rounded-2xl px-4 pt-1 pb-2">Fashion</button>
+                            <video className="rounded-3xl w-[400px]" loop autoPlay muted src="https://framerusercontent.com/assets/Py00ZrwZ0EZGP6Q4CS68uI.mp4"></video>
                         </div>
                         <div className="flex flex-col gap-6">
                             <div className="flex flex-col gap-2">
@@ -107,8 +117,11 @@ export default function HomePage() {
                     </div>
                     {/* Card 2 */}
                     <div className="flex flex-col gap-6">
-                        <div className="bg-slate-400 w-full h-[350px] rounded-2xl">
-                            {/* Insert Image here */}
+                        <div className="w-full relative rounded-2xl">
+                            <button className="absolute left-4 top-2 text-white text-sm font-semibold bg-black/15 rounded-md px-4 pt-1 pb-2">Product</button>
+                            <button className="absolute left-[100px] top-2 text-white text-sm font-semibold bg-black/15 rounded-md px-4 pt-1 pb-2">Brand</button>
+                            <button className="absolute left-[170px] top-2 text-white text-sm font-semibold bg-black/15 rounded-2xl px-4 pt-1 pb-2">Energy</button>
+                            <video className="rounded-3xl w-[400px]" loop autoPlay muted src="https://framerusercontent.com/assets/eKyUB6C9K7bxBl9Ftxm79pHkkKM.mp4"></video>
                         </div>
                         <div className="flex flex-col gap-6">
                             <div className="flex flex-col gap-2">
@@ -127,8 +140,10 @@ export default function HomePage() {
                     </div>
                     {/* Card 3 */}
                     <div className="flex flex-col gap-6">
-                        <div className="bg-slate-400 w-full h-[350px] rounded-2xl">
-                            {/* Insert Image here */}
+                        <div className="bg-slate-400 w-full relative rounded-2xl">
+                            <button className="absolute left-4 top-2 text-white text-sm font-semibold bg-transparent/50 rounded-md px-4 pt-1 pb-2">Product</button>
+                            <button className="absolute left-[100px] top-2 text-white text-sm font-semibold bg-transparent/50 rounded-2xl px-4 pt-1 pb-2">Pharmaceutical</button>
+                            <img className="rounded-3xl w-[400px]" src="https://framerusercontent.com/images/pNWmvtzGxBYfK36LNtnBwyHuY.png?width=1080&height=1350" />
                         </div>
                         <div className="flex flex-col gap-6">
                             <div className="flex flex-col gap-2">
@@ -214,7 +229,7 @@ export default function HomePage() {
                     {/* Insert Image here */}
                 </div>
             </div>
-            <div className="flex flex-col pt-10 items-center gap-10">
+            <div id="paragraph" onPointerEnter={handleEnter} className="flex flex-col pt-10 items-center gap-10 bg-white">
                 <img className="w-64 h-40 rounded-3xl items-center" src="get-to-know-us-1.avif" alt="" />
                 <div className="flex flex-col items-start px-6 gap-10 max-w-[400px]">
                     <h2 className="text-3xl">We’re a small team of versatile creatives, committed to doing good work while having fun.</h2>
