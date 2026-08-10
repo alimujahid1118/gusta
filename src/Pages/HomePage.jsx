@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function HomePage() {
 
     const [ menuBox, setMenuBox ] = useState(false);
+    gsap.registerPlugin(ScrollTrigger)
 
     useEffect(() => {
 
@@ -40,6 +42,25 @@ export default function HomePage() {
             duration: 0
         })
 
+        gsap.to("#image-scroll", {
+            y: -200,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#image-scroll",
+                start: "top 70%",
+                end: "top -200%",
+                scrub: 2,
+            }
+        });
+
+        gsap.to("#hi-img", {
+            rotate: -6,
+            x: -5,
+            ease: "sine.inOut",
+            yoyo: true,
+            repeat: -1
+        })
+
         return () => tl.kill()
     }, [])
 
@@ -51,6 +72,70 @@ export default function HomePage() {
         })
     }
 
+    const handleClick = () => {
+        setMenuBox((prev) => !prev)
+    }
+
+    useEffect(() => {
+        if (menuBox) {
+            gsap.fromTo(
+                "#menu",
+                {
+                    scale: 0.8,
+                    y: 20
+                },
+                {
+                    scale: 1,
+                    y: 0,
+                    duration: 0.5,
+                    ease: "power3.out"
+                }
+            )
+
+            gsap.fromTo(
+                ".buttons",
+                {
+                    x:-40,
+                },
+                {
+                    x:0,
+                    stagger:0.025
+                }
+            )
+
+            gsap.fromTo(
+                ".brands",
+                {
+                    x:40,
+                },
+                {
+                    x:0,
+                    stagger:0.025
+                }
+            )
+
+            gsap.to("#menu", {
+                backgroundColor: "white",
+                scrollTrigger: {
+                    trigger: "#black-section",
+                    start: "top center",
+                    end: "bottom center",
+                    toggleActions: "play reverse play reverse",
+                }
+            })
+
+            gsap.to(".btn", {
+                color: "black",
+                scrollTrigger: {
+                    trigger: "#black-section",
+                    start: "top center",
+                    end: "bottom center",
+                    toggleActions: "play reverse play reverse",
+                }
+            })
+
+        }
+    }, [menuBox])
     return (
         <div className="flex flex-col">
             <div className="flex fixed z-40 top-8 left-8">
@@ -383,51 +468,185 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
-            <div className="bg-[#fff1d6] flex flex-col max-w-[350px] md:max-w-[750px] mx-10 rounded-3xl gap-12 mt-8 md:ml-[450px] py-8">
-                <h1 className="px-8 md:px-36 text-4xl font-bold text-center text-zinc-700">
-                    How can we help you?
-                </h1>
-                <div className="flex flex-col gap-4">
-                    <h2 className="pl-8 md:text-xl">Choose what fit your needs</h2>
-                    <div className="flex flex-col px-2 md:px-6 gap-2 md:text-xl">
-                        <button className="bg-white p-2 md:p-4 max-w-80 md:max-w-[400px] rounded-xl text-left font-semibold">
-                            Our product needs to be more intuitive
-                        </button>
-                        <button className="bg-white p-2 md:p-4 max-w-56 md:max-w-[300px] rounded-xl text-left font-semibold">
-                            We need a consistent look and feel across our products
-                        </button>
-                        <button className="bg-white p-2 md:p-4 max-w-80 md:max-w-[400px] rounded-xl text-left font-semibold">
-                            Our product needs a new UX/UI design
-                        </button>
-                        <button className="bg-white p-2 md:p-4 max-w-80 md:max-w-[400px] rounded-xl text-left font-semibold">
-                            Our brand needs to reflect who we are
-                        </button>
-                        <button className="bg-white p-2 md:p-4 max-w-56 md:max-w-[370px] rounded-xl text-left font-semibold">
-                            We need compelling visuals to bring our brand to life
-                        </button>
-                        <button className="bg-white p-2 md:p-4 max-w-48 md:max-w-64 rounded-xl text-left font-semibold">
-                            We need a new website
-                        </button>
+            <div className="flex flex-col items-center">
+                <div className="bg-[#fff1d6] flex flex-col max-w-[350px] md:max-w-[550px] mx-10 rounded-3xl gap-12 mt-8 md:ml-[450px] py-8">
+                    <h1 className="px-8 md:px-36 text-4xl font-bold text-center text-zinc-700">
+                        How can we help you?
+                    </h1>
+                    <div className="flex flex-col gap-4">
+                        <h2 className="pl-8 md:text-xl">Choose what fit your needs</h2>
+                        <div className="flex flex-col px-2 md:px-6 gap-2 md:text-xl">
+                            <button className="bg-white p-2 md:p-4 max-w-80 md:max-w-[400px] rounded-xl text-left font-semibold">
+                                Our product needs to be more intuitive
+                            </button>
+                            <button className="bg-white p-2 md:p-4 max-w-56 md:max-w-[300px] rounded-xl text-left font-semibold">
+                                We need a consistent look and feel across our products
+                            </button>
+                            <button className="bg-white p-2 md:p-4 max-w-80 md:max-w-[400px] rounded-xl text-left font-semibold">
+                                Our product needs a new UX/UI design
+                            </button>
+                            <button className="bg-white p-2 md:p-4 max-w-80 md:max-w-[400px] rounded-xl text-left font-semibold">
+                                Our brand needs to reflect who we are
+                            </button>
+                            <button className="bg-white p-2 md:p-4 max-w-56 md:max-w-[370px] rounded-xl text-left font-semibold">
+                                We need compelling visuals to bring our brand to life
+                            </button>
+                            <button className="bg-white p-2 md:p-4 max-w-48 md:max-w-64 rounded-xl text-left font-semibold">
+                                We need a new website
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
             <div className="flex flex-col w-full pt-14">
-                <div className="bg-slate-400 w-full h-[350px]">
-                    {/* Insert Image here */}
+
+                {/* ================= TOP IMAGE SECTION ================= */}
+                <div className="relative w-full h-[350px] md:max-w-[1000px] md:mx-auto">
+
+                    {/* Top image */}
+                    <div
+                        className="
+                            absolute
+                            right-[80px]
+                            top-0
+                            w-[150px]
+                            h-[150px]
+                            rounded-3xl
+                            overflow-hidden
+
+                            md:right-auto
+                            md:left-1/2
+                            md:-translate-x-1/2
+                        "
+                    >
+                        <img
+                            id="image-scroll"
+                            className="absolute w-full h-auto max-w-none"
+                            src="https://framerusercontent.com/images/rZcQWllc4c3CVxQQAfwRJRHTYgo.png?width=500&height=716"
+                            alt=""
+                        />
+                    </div>
+
+
+                    {/* Left image */}
+                    <img
+                        className="
+                            absolute
+                            left-[16px]
+                            top-[160px]
+                            w-[144px]
+
+                            md:left-[calc(50%-320px)]
+                            md:top-[160px]
+                        "
+                        src="https://framerusercontent.com/images/u6RQ8n0V3e7XnoFiOmvjaiE6b4.png?width=400&height=360"
+                        alt=""
+                    />
+
+
+                    {/* Right image */}
+                    <img
+                        className="
+                            absolute
+                            right-0
+                            top-[192px]
+                            w-[112px]
+
+                            md:right-auto
+                            md:left-[calc(50%+280px)]
+                            md:top-[192px]
+                        "
+                        src="https://framerusercontent.com/images/m5ACNgRDKTs10VlZqpmLeL3cM.png?width=328&height=400"
+                        alt=""
+                    />
+
                 </div>
+
+
+                {/* ================= TEXT ================= */}
                 <div className="flex flex-col items-center justify-center text-center">
-                    <div className="flex flex-col items-center py-10 gap-6 max-w-[350px] md:max-w-[750px]">
-                        <h2 className="text-3xl md:text-4xl font-normal px-6 text-center">
+
+                    <div className="flex flex-col items-center py-10 gap-6 max-w-[750px] px-6">
+
+                        <h2 className="text-3xl md:text-4xl font-normal text-center">
                             We're the creative link between people, business, and technology.
                         </h2>
+
                         <button className="bg-black text-white rounded-3xl md:rounded-[40px] md:text-xl px-5 md:px-10 py-3 md:py-4 font-semibold md:font-bold">
                             Our expertise
                         </button>
+
                     </div>
+
                 </div>
-                <div className="bg-slate-400 w-full h-[350px]">
-                    {/* Insert Image here */}
+
+
+                {/* ================= BOTTOM IMAGE SECTION ================= */}
+                <div className="relative w-full h-[350px] md:max-w-[1000px] md:mx-auto">
+
+                    {/* Center circle */}
+                    <div
+                        className="
+                            bg-[#abe8e8]
+                            absolute
+                            right-48
+                            flex
+                            justify-center
+                            items-center
+                            overflow-hidden
+                            w-24
+                            h-24
+                            rounded-full
+
+                            md:right-auto
+                            md:left-1/2
+                            md:-translate-x-1/2
+                        "
+                    >
+                        <div className="bg-[#8bbbbb] absolute right-0 ml-14 pr-[65px] rounded-l-[20px] h-10">
+
+                            <div className="bg-white absolute top-1 right-7 w-8 h-8 rounded-full" />
+
+                        </div>
+                    </div>
+
+
+                    {/* Bottom left image */}
+                    <img
+                        className="
+                            absolute
+                            w-32
+                            left-[-16px]
+                            rounded-3xl
+                            top-16
+
+                            md:left-[calc(50%-350px)]
+                            md:top-16
+                        "
+                        src="https://framerusercontent.com/images/UpZmkBz2pRPBV1v7uIXkAmOOiI.png?width=2160&height=2700"
+                        alt=""
+                    />
+
+
+                    {/* Bottom right image */}
+                    <img
+                        className="
+                            absolute
+                            w-28
+                            right-4
+                            rounded-3xl
+                            top-32
+
+                            md:right-auto
+                            md:left-[calc(50%+300px)]
+                            md:top-32
+                        "
+                        src="https://framerusercontent.com/images/mFA1qXsCrvd3M2PFSuqWHciT1QA.png?width=400&height=560"
+                        alt=""
+                    />
+
                 </div>
+
             </div>
             <div id="paragraph" onPointerEnter={handleEnter} className="flex flex-col pt-10 items-center gap-10 bg-white">
                 <img className="w-64 h-40 rounded-3xl items-center" src="get-to-know-us-1.avif" alt="" />
@@ -443,8 +662,9 @@ export default function HomePage() {
                 </div>
                 <div className="bg-[#fcc113] relative flex flex-col w-full py-10 pl-6 pr-10 gap-8">
                     <h2 className="text-3xl pr-36 font-semibold">Stay connected with updates, insights, and inspiration.</h2>
-                    <div className="bg-slate-400 w-[250px] h-[450px] rounded-xl">
-                        {/* Insert video here */}
+                    <div className="w-[250px] h-[450px] rounded-xl">
+                        <video loop muted autoPlay className="rounded-2xl" src="https://framerusercontent.com/assets/7lIGZQ6m8lkueVE4gq0N7vp8aRM.mp4"></video>
+                        <button className="absolute bottom-14 text-white font-semibold text-md bg-slate-400/60 mx-3 rounded-sm px-4 py-2">@gusta.studio</button>
                     </div>
                 </div>
             </div>
@@ -462,12 +682,12 @@ export default function HomePage() {
                     </Link>
                 </div>
             </div>
-            <div className="flex flex-col gap-10 w-full pt-20 pb-36 bg-black">
+            <div id="black-section" className="flex flex-col gap-10 w-full pt-20 pb-36 bg-black">
                 <div className="flex flex-col items-center gap-12">
                     <div className="flex flex-col items-center text-center gap-4">
-                        <img className="bg-white w-24 h-24 rounded-full">
-                            {/* Insert Image here */}
-                        </img>
+                        <div id="hi-img" className="w-24 h-24 rounded-full">
+                            <img src="https://framerusercontent.com/images/PuvnN0YSZyFwziROuckDkgNjLXA.png" alt="" />
+                        </div>
                         <p className="text-3xl font-semibold text-white px-8">Ready to move forward?Let's work together!</p>
                     </div>
                     <Link className="bg-[#0ba5bd] text-2xl text-white px-10 py-6 rounded-full font-semibold">
@@ -540,14 +760,14 @@ export default function HomePage() {
             </div>
             {/* Menu */}
             <div
-                onClick={() => setMenuBox(prev => !prev)}
+                onClick={handleClick}
                 className="fixed z-50 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 bottom-6 md:top-9 md:right-12"
                 >
                 <div
                     className={`z-50 px-4 py-3 rounded-full transition-all duration-500 ${
                     menuBox
                         ? "bg-[#d6dcd3bf] md:bg-zinc-700 md:text-white"
-                        : "bg-white md:bg-[#e7efe3bf] shadow-xl md:shadow-none"
+                        : "bg-white text-black md:bg-[#e7efe3bf] shadow-xl md:shadow-none"
                     }`}
                 >
                     <span
@@ -562,23 +782,23 @@ export default function HomePage() {
             {/* Menu box */}
             {
                 menuBox && (
-                    <div className="flex flex-col bg-white md:bg-black rounded-3xl md:rounded-[40px] z-40 fixed left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 shadow-xl bottom-2 md:right-11 md:top-8">
+                    <div id="menu" className="flex flex-col bg-white md:bg-black rounded-3xl md:rounded-[40px] z-40 fixed left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 shadow-xl bottom-2 md:right-11 md:top-8">
                         <div className="flex flex-col md:text-white md:items-start md:pl-10 md:pr-40 gap-3 px-24 pt-10 text-4xl md:text-5xl">
-                            <button>Home</button>
-                            <button>Work</button>
-                            <button>Services</button>
-                            <button>About</button>
-                            <button>Contact</button>
+                            <button className="buttons btn">Home</button>
+                            <button className="buttons btn">Work</button>
+                            <button className="buttons btn">Services</button>
+                            <button className="buttons btn">About</button>
+                            <button className="buttons btn">Contact</button>
                         </div>
                         <div className="flex flex-col gap-2 text-[#5e605cbf] md:text-[#868984bf] py-8 items-center md:items-start md:px-10 text-md">
-                            <button>Playground</button>
-                            <button>Shop</button>
-                            <button>Newsletter</button>
+                            <button className="buttons">Playground</button>
+                            <button className="buttons">Shop</button>
+                            <button className="buttons">Newsletter</button>
                         </div>
                         <div className="flex flex-row gap-4 text-[#5e605cbf] md:text-[#868984bf] text-2xl md:text-3xl justify-center md:justify-end md:px-12 pb-24">
-                            <i className="fi fi-brands-instagram"></i>
-                            <i className="fi fi-brands-behance"></i>
-                            <i className="fi fi-brands-linkedin"></i>
+                            <i className="brands fi fi-brands-instagram"></i>
+                            <i className="brands fi fi-brands-behance"></i>
+                            <i className="brands fi fi-brands-linkedin"></i>
                         </div>
                     </div>
                 )
