@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 export default function HomePage() {
 
     const [ menuBox, setMenuBox ] = useState(false);
+    const [ socarratClick, setSocarratClick] = useState(false)
     gsap.registerPlugin(ScrollTrigger)
 
     useEffect(() => {
@@ -67,7 +68,13 @@ export default function HomePage() {
     const handleEnter = () => {
         gsap.to("#paragraph", {
             backgroundColor: "#fff1d6",
-            duration: 0.5,
+            overwrite:true
+        })
+    }
+
+    const handleLeave = () => {
+        gsap.to("#paragraph", {
+            backgroundColor: "white",
             overwrite:true
         })
     }
@@ -498,7 +505,7 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col w-full pt-14">
+            <div id="paragraph" className="flex flex-col w-full pt-14">
 
                 {/* ================= TOP IMAGE SECTION ================= */}
                 <div className="relative w-full h-[350px] md:max-w-[1000px] md:mx-auto">
@@ -515,7 +522,9 @@ export default function HomePage() {
                             overflow-hidden
 
                             md:right-auto
-                            md:left-1/2
+                            md:left-[250px]
+                            md:w-[210px]
+                            md:h-[210px]
                             md:-translate-x-1/2
                         "
                     >
@@ -536,8 +545,9 @@ export default function HomePage() {
                             top-[160px]
                             w-[144px]
 
-                            md:left-[calc(50%-320px)]
-                            md:top-[160px]
+                            md:left-[calc(50%-40px)]
+                            md:w-[160px]
+                            md:top-[130px]
                         "
                         src="https://framerusercontent.com/images/u6RQ8n0V3e7XnoFiOmvjaiE6b4.png?width=400&height=360"
                         alt=""
@@ -553,6 +563,7 @@ export default function HomePage() {
                             w-[112px]
 
                             md:right-auto
+                            md:w-[140px]
                             md:left-[calc(50%+280px)]
                             md:top-[192px]
                         "
@@ -599,13 +610,16 @@ export default function HomePage() {
                             rounded-full
 
                             md:right-auto
-                            md:left-1/2
+                            md:left-[400px]
+                            md:top-[110px]
+                            md:w-[150px]
+                            md:h-[150px]
                             md:-translate-x-1/2
                         "
                     >
-                        <div className="bg-[#8bbbbb] absolute right-0 ml-14 pr-[65px] rounded-l-[20px] h-10">
+                        <div className="bg-[#8bbbbb] absolute right-0 ml-14 pr-[65px] md:pr-[95px] rounded-l-[20px] md:rounded-l-[30px] h-10 md:h-14">
 
-                            <div className="bg-white absolute top-1 right-7 w-8 h-8 rounded-full" />
+                            <div className="bg-white absolute top-1 md:top-2 right-7 md:right-[50px] w-8 h-8 md:w-10 md:h-10 rounded-full" />
 
                         </div>
                     </div>
@@ -620,8 +634,9 @@ export default function HomePage() {
                             rounded-3xl
                             top-16
 
-                            md:left-[calc(50%-350px)]
-                            md:top-16
+                            md:left-[calc(50%-450px)]
+                            md:-top-12
+                            md:w-[160px]
                         "
                         src="https://framerusercontent.com/images/UpZmkBz2pRPBV1v7uIXkAmOOiI.png?width=2160&height=2700"
                         alt=""
@@ -638,8 +653,9 @@ export default function HomePage() {
                             top-32
 
                             md:right-auto
-                            md:left-[calc(50%+300px)]
-                            md:top-32
+                            md:w-[160px]
+                            md:left-[calc(50%+150px)]
+                            md:top-20
                         "
                         src="https://framerusercontent.com/images/mFA1qXsCrvd3M2PFSuqWHciT1QA.png?width=400&height=560"
                         alt=""
@@ -648,7 +664,9 @@ export default function HomePage() {
                 </div>
 
             </div>
-            <div id="paragraph" onPointerEnter={handleEnter} className="flex flex-col pt-10 items-center gap-10 bg-white">
+
+            {/* Mobile */}
+            <div id="paragraph" onPointerEnter={handleEnter} onPointerLeave={handleLeave} className="flex flex-col pt-10 items-center gap-10 bg-white md:hidden">
                 <img className="w-64 h-40 rounded-3xl items-center" src="get-to-know-us-1.avif" alt="" />
                 <div className="flex flex-col items-start px-6 gap-10 max-w-[400px]">
                     <h2 className="text-3xl">We’re a small team of versatile creatives, committed to doing good work while having fun.</h2>
@@ -668,7 +686,50 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
-            <div className="relative flex flex-col py-10 px-6 gap-6 text-center bg-[#fff1d6]">
+            {/* Desktop */}
+            <div id="paragraph" onPointerEnter={handleEnter} onPointerLeave={handleLeave} className="hidden md:flex md:flex-col pt-10 items-center relative gap-24 bg-white">
+                <div className="flex relative right-14 w-full px-8 max-w-[600px]">
+                    <img className="w-[350px] rounded-2xl" src="get-to-know-us-2.avif" alt="" />
+                    <img className="absolute w-28 -bottom-8 right-44" src="https://framerusercontent.com/images/X1NF4nBj3ynPnt5C5wXPCQ1AU.png?width=270&height=209" alt="" />
+                </div>
+                <div className="flex relative w-full max-w-[600px] h-[320px]">
+                    <img className="absolute w-[500px] h-[330px] rounded-3xl -right-9" src="get-to-know-us-1.avif" alt="" />
+                </div>
+                <div className="flex flex-col items-start pl-20 gap-10 max-w-[500px]">
+                    <h2 className="text-[35px] font-semibold">We’re a small team of versatile creatives, committed to doing good work while having fun.</h2>
+                    <button className="bg-black text-white text-xl rounded-3xl px-6 pt-3 pb-4 font-bold">
+                        Get to know us
+                    </button>
+                </div>
+                <div className="bg-[#fcc113] relative flex flex-col items-center w-full py-10 pl-6 pr-10 gap-8">
+                    <h2 className="text-[40px] pr-36 font-semibold max-w-[700px]">Stay connected with updates, insights, and inspiration.</h2>
+                    <div className="flex flex-row gap-6">
+                        <div className="w-[300px] h-[550px] rounded-xl">
+                            <video loop muted autoPlay className="rounded-2xl" src="https://framerusercontent.com/assets/7lIGZQ6m8lkueVE4gq0N7vp8aRM.mp4"></video>
+                            <button className="absolute top-[670px] text-white font-semibold text-md bg-slate-400/60 mx-3 rounded-sm px-4 py-2">@gusta.studio</button>
+                        </div>
+                        <div className="flex items-end">
+                            <img className="w-[400px] rounded-full" src="stay-connected.avif" alt="" />
+                        </div>
+                    </div>
+                    <div className="hidden md:relative md:flex md:flex-col max-w-[700px] rounded-[60px] py-16 px-6 gap-10 text-center bg-[#fff1d6]">
+                        <img className="absolute w-28 -top-11 right-6" src="https://framerusercontent.com/images/pqmEbEHZ6IodkvP01Yoz5uBYu9U.png?width=2704&height=2133" alt="" />
+                        <h2 className="text-6xl font-semibold">The Socarrat</h2>
+                        <p className="text-lg px-40">Our newsletter with a digestible selection of inspiring finds. Sent every month, from our screen to yours.</p>
+                        <div className="flex flex-row gap-6 justify-center items-center">
+                            <button className="bg-black text-white text-lg font-bold px-6 py-3 rounded-3xl">
+                                Subscribe
+                            </button>
+                            <Link className="flex flex-row text-xl gap-4">
+                                <p className="font-semibold">Previous issues</p>
+                                <p>{`>`}</p>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="relative flex flex-col py-10 px-6 gap-6 text-center bg-[#fff1d6] md:hidden">
                 <img className="absolute w-28 -top-11 right-6" src="https://framerusercontent.com/images/pqmEbEHZ6IodkvP01Yoz5uBYu9U.png?width=2704&height=2133" alt="" />
                 <h2 className="text-4xl font-semibold">The Socarrat</h2>
                 <p className="text-lg px-6">Our newsletter with a digestible selection of inspiring finds. Sent every month, from our screen to yours.</p>
@@ -682,7 +743,7 @@ export default function HomePage() {
                     </Link>
                 </div>
             </div>
-            <div id="black-section" className="flex flex-col gap-10 w-full pt-20 pb-36 bg-black">
+            <div id="black-section" className="flex flex-col gap-10 w-full pt-20 pb-36 md:pb-8 bg-black">
                 <div className="flex flex-col items-center gap-12">
                     <div className="flex flex-col items-center text-center gap-4">
                         <div id="hi-img" className="w-24 h-24 rounded-full">
@@ -694,62 +755,77 @@ export default function HomePage() {
                         Contact us
                     </Link>
                 </div>
-                <div className="flex flex-col gap-8 px-6 pt-10">
+                <div className="flex flex-col gap-8 px-6 pt-10 md:flex-row md:pl-8 md:pr-[400px] md:justify-between">
+
+                    {/* Navigation */}
                     <div className="text-white flex flex-col gap-4 items-start text-5xl">
                         <button>Work</button>
                         <button>Services</button>
                         <button>About</button>
                         <button>Contact</button>
+                        <div className="flex flex-col text-[#91948fbf] items-start text-xl">
+                            <button>FAQ</button>
+                            <button>Playground</button>
+                            <button>Shop</button>
+                        </div>
                     </div>
-                    <div className="flex flex-col text-[#91948fbf] items-start text-xl">
-                        <button>FAQ</button>
-                        <button>Playground</button>
-                        <button>Shop</button>
+
+                    {/* Right side */}
+                    <div className="flex flex-col gap-8">
+
+                        <div className="flex flex-col gap-4 text-xl">
+                            <h3 className="text-white font-bold">Studio</h3>
+                            <div className="flex flex-col gap-1 text-[#91948fbf]">
+                                <p>C/ Pintor Gisbert 4</p>
+                                <p>46006 Valencia, Spain</p>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col gap-4">
+                            <h3 className="text-white font-bold text-xl">New business</h3>
+                            <p className="text-[#91948fbf] text-lg">hola@gusta.studio</p>
+                        </div>
+
+                        <div className="flex flex-col gap-2 items-start">
+                            <h3 className="text-white font-bold text-xl">Connect</h3>
+                            <button className="text-[#91948fbf] text-lg">Instagram</button>
+                            <button className="text-[#91948fbf] text-lg">Behance</button>
+                            <button className="text-[#91948fbf] text-lg">LinkedIn</button>
+                        </div>
+
                     </div>
                 </div>
-                <div className="flex flex-col px-6 gap-4 text-xl">
-                    <h3 className="text-white font-bold">Studio</h3>
-                    <div className="flex flex-col gap-1 text-[#91948fbf]">
-                        <p>C/ Pintor Gisbert 4</p>
-                        <p>46006 Valencia, Spain</p>
-                    </div>
-                </div>
-                <div className="flex flex-col px-6 gap-4">
-                    <h3 className="text-white font-bold text-xl">New business</h3>
-                    <p className="text-[#91948fbf] text-lg">hola@gusta.studio</p>
-                </div>
-                <div className="flex flex-col px-6 gap-2 items-start">
-                    <h3 className="text-white font-bold text-xl">Connect</h3>
-                    <button className="text-[#91948fbf] text-lg">Instagram</button>
-                    <button className="text-[#91948fbf] text-lg">Behance</button>
-                    <button className="text-[#91948fbf] text-lg">LinkedIn</button>
-                </div>
-                <div className="px-4 py-8">
-                    <div className="bg-[#292c2abf] relative flex flex-col w-full rounded-3xl p-6 gap-12">
-                        <img className="absolute w-24 -top-24 right-5" src="https://framerusercontent.com/images/yMcZyBTYBbjoT7Ltpr4npl44us.png?scale-down-to=2048&width=2581&height=3373" alt="" />
+                <div onClick={() => setSocarratClick(true)} className="md:flex md:flex-col md:items-end px-4 md:px-6 py-8">
+                    <div className={`bg-[#292c2abf] relative flex flex-col w-full md:max-w-[500px] rounded-3xl p-6 gap-12 md:gap-28 ${socarratClick ? `md:bg-white` : `md:bg-[#292c2abf]`}`}>
+                        <img className="absolute w-24 md:w-32 -top-24 md:top-40 right-5 md:-left-28" src="https://framerusercontent.com/images/yMcZyBTYBbjoT7Ltpr4npl44us.png?scale-down-to=2048&width=2581&height=3373" alt="" />
                         <div className="flex flex-col gap-2">
-                            <h2 className="text-white font-semibold">
+                            <h2 className={socarratClick ? "text-white font-semibold md:text-black md:text-xl" :`text-white font-semibold md:text-xl`}>
                                 Subscribe to the Socarrat
                             </h2>
-                            <input className="text-[#91948fbf] text-2xl bg-transparent" type="email" placeholder="Enter your email" />
+                            <input className="text-[#91948fbf] text-2xl md:text-4xl bg-transparent" type="email" placeholder="Enter your email" />
                         </div>
                         <div className="flex flex-col gap-5">
-                            <p className="text-[#91948fbf] text-lg">
+                            <p className={`text-[#91948fbf] text-lg md:pl-24 md:pr-8 md:text-right ${socarratClick ? `md:hidden`: `md:flex`}`}>
                                 Digestible selection of inspiring finds. Sent monthly, from our screen to yours.
                             </p>
-                            <div className="flex flex-row justify-between items-center">
-                                <button className="bg-[#0ba5bd] px-6 py-2 text-white rounded-3xl text-lg font-bold">Subscribe</button>
-                                <Link className="text-[#91948fbf] underline">Privacy</Link>
+                            <div className={`flex flex-row justify-between items-center ${socarratClick ? `md:flex`: `md:hidden`}`}>
+                                {/* Mobile */}
+                                <button className="bg-[#0ba5bd] px-6 py-2 text-white rounded-3xl text-lg font-bold md:hidden">Subscribe</button>
+                                <Link className="text-[#91948fbf] underline md:hidden">Privacy</Link>
+
+                                {/* Desktop */}
+                                <Link className="hidden md:block md:text-[#91948fbf] underline">Privacy</Link>
+                                <button className="hidden md:block bg-[#0ba5bd] px-6 py-2 text-white rounded-3xl text-lg font-bold">Subscribe</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col px-8 gap-8">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-center px-8 gap-8">
                     <div className="flex flex-row gap-4">
                         <img className="w-16" src="gusta-logo.avif" alt="" />
                         <p className="font-bold text-5xl text-white">gusta</p>
                     </div>
-                    <div className="flex flex-col gap-4 text-[#91948fbf] text-sm">
+                    <div className="flex flex-col md:flex-row gap-4 text-[#91948fbf] text-sm">
                         <div className="flex flex-row gap-6">
                             <Link>Terms and Conditions</Link>
                             <Link>Privacy</Link>
