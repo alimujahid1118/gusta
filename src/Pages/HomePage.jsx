@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Logo from "../Components/Logo";
+import MenuBox from "../Components/MenuBox";
+import Footer from "../Components/Footer";
 
 export default function HomePage() {
 
-    const [ menuBox, setMenuBox ] = useState(false);
-    const [ socarratClick, setSocarratClick] = useState(false)
     gsap.registerPlugin(ScrollTrigger)
 
     useEffect(() => {
@@ -79,75 +80,9 @@ export default function HomePage() {
         })
     }
 
-    const handleClick = () => {
-        setMenuBox((prev) => !prev)
-    }
-
-    useEffect(() => {
-        if (menuBox) {
-            gsap.fromTo(
-                "#menu",
-                {
-                    scale: 0.8,
-                    y: 20
-                },
-                {
-                    scale: 1,
-                    y: 0,
-                    duration: 0.5,
-                    ease: "power3.out"
-                }
-            )
-
-            gsap.fromTo(
-                ".buttons",
-                {
-                    x:-40,
-                },
-                {
-                    x:0,
-                    stagger:0.025
-                }
-            )
-
-            gsap.fromTo(
-                ".brands",
-                {
-                    x:40,
-                },
-                {
-                    x:0,
-                    stagger:0.025
-                }
-            )
-
-            gsap.to("#menu", {
-                backgroundColor: "white",
-                scrollTrigger: {
-                    trigger: "#black-section",
-                    start: "top center",
-                    end: "bottom center",
-                    toggleActions: "play reverse play reverse",
-                }
-            })
-
-            gsap.to(".btn", {
-                color: "black",
-                scrollTrigger: {
-                    trigger: "#black-section",
-                    start: "top center",
-                    end: "bottom center",
-                    toggleActions: "play reverse play reverse",
-                }
-            })
-
-        }
-    }, [menuBox])
     return (
         <div className="flex flex-col">
-            <div className="flex fixed z-40 top-8 left-8">
-                <img className="w-14" src="gusta-logo.avif" alt="Website logo" />
-            </div>
+            <Logo />
             <div className="flex flex-col py-32 items-center overflow-x-hidden">
                 <h1 className="font-bold px-4 py-2 text-center text-4xl md:text-7xl md:max-w-[700px] max-w-[400px]">Forward Through Digital Design</h1>
                 {/* Mobile */}
@@ -743,142 +678,10 @@ export default function HomePage() {
                     </Link>
                 </div>
             </div>
-            <div id="black-section" className="flex flex-col gap-10 w-full pt-20 pb-36 md:pb-8 bg-black">
-                <div className="flex flex-col items-center gap-12">
-                    <div className="flex flex-col items-center text-center gap-4">
-                        <div id="hi-img" className="w-24 h-24 rounded-full">
-                            <img src="https://framerusercontent.com/images/PuvnN0YSZyFwziROuckDkgNjLXA.png" alt="" />
-                        </div>
-                        <p className="text-3xl font-semibold text-white px-8">Ready to move forward?Let's work together!</p>
-                    </div>
-                    <Link className="bg-[#0ba5bd] text-2xl text-white px-10 py-6 rounded-full font-semibold">
-                        Contact us
-                    </Link>
-                </div>
-                <div className="flex flex-col gap-8 px-6 pt-10 md:flex-row md:pl-8 md:pr-[400px] md:justify-between">
+            
+            <Footer />
 
-                    {/* Navigation */}
-                    <div className="text-white flex flex-col gap-4 items-start text-5xl">
-                        <button>Work</button>
-                        <button>Services</button>
-                        <button>About</button>
-                        <button>Contact</button>
-                        <div className="flex flex-col text-[#91948fbf] items-start text-xl">
-                            <button>FAQ</button>
-                            <button>Playground</button>
-                            <button>Shop</button>
-                        </div>
-                    </div>
-
-                    {/* Right side */}
-                    <div className="flex flex-col gap-8">
-
-                        <div className="flex flex-col gap-4 text-xl">
-                            <h3 className="text-white font-bold">Studio</h3>
-                            <div className="flex flex-col gap-1 text-[#91948fbf]">
-                                <p>C/ Pintor Gisbert 4</p>
-                                <p>46006 Valencia, Spain</p>
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col gap-4">
-                            <h3 className="text-white font-bold text-xl">New business</h3>
-                            <p className="text-[#91948fbf] text-lg">hola@gusta.studio</p>
-                        </div>
-
-                        <div className="flex flex-col gap-2 items-start">
-                            <h3 className="text-white font-bold text-xl">Connect</h3>
-                            <button className="text-[#91948fbf] text-lg">Instagram</button>
-                            <button className="text-[#91948fbf] text-lg">Behance</button>
-                            <button className="text-[#91948fbf] text-lg">LinkedIn</button>
-                        </div>
-
-                    </div>
-                </div>
-                <div onClick={() => setSocarratClick(true)} className="md:flex md:flex-col md:items-end px-4 md:px-6 py-8">
-                    <div className={`bg-[#292c2abf] relative flex flex-col w-full md:max-w-[500px] rounded-3xl p-6 gap-12 md:gap-28 ${socarratClick ? `md:bg-white` : `md:bg-[#292c2abf]`}`}>
-                        <img className="absolute w-24 md:w-32 -top-24 md:top-40 right-5 md:-left-28" src="https://framerusercontent.com/images/yMcZyBTYBbjoT7Ltpr4npl44us.png?scale-down-to=2048&width=2581&height=3373" alt="" />
-                        <div className="flex flex-col gap-2">
-                            <h2 className={socarratClick ? "text-white font-semibold md:text-black md:text-xl" :`text-white font-semibold md:text-xl`}>
-                                Subscribe to the Socarrat
-                            </h2>
-                            <input className="text-[#91948fbf] text-2xl md:text-4xl bg-transparent" type="email" placeholder="Enter your email" />
-                        </div>
-                        <div className="flex flex-col gap-5">
-                            <p className={`text-[#91948fbf] text-lg md:pl-24 md:pr-8 md:text-right ${socarratClick ? `md:hidden`: `md:flex`}`}>
-                                Digestible selection of inspiring finds. Sent monthly, from our screen to yours.
-                            </p>
-                            <div className={`flex flex-row justify-between items-center ${socarratClick ? `md:flex`: `md:hidden`}`}>
-                                {/* Mobile */}
-                                <button className="bg-[#0ba5bd] px-6 py-2 text-white rounded-3xl text-lg font-bold md:hidden">Subscribe</button>
-                                <Link className="text-[#91948fbf] underline md:hidden">Privacy</Link>
-
-                                {/* Desktop */}
-                                <Link className="hidden md:block md:text-[#91948fbf] underline">Privacy</Link>
-                                <button className="hidden md:block bg-[#0ba5bd] px-6 py-2 text-white rounded-3xl text-lg font-bold">Subscribe</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="flex flex-col md:flex-row md:justify-between md:items-center px-8 gap-8">
-                    <div className="flex flex-row gap-4">
-                        <img className="w-16" src="gusta-logo.avif" alt="" />
-                        <p className="font-bold text-5xl text-white">gusta</p>
-                    </div>
-                    <div className="flex flex-col md:flex-row gap-4 text-[#91948fbf] text-sm">
-                        <div className="flex flex-row gap-6">
-                            <Link>Terms and Conditions</Link>
-                            <Link>Privacy</Link>
-                        </div>
-                        <p>© 2026 Gusta</p>
-                    </div>
-                </div>
-            </div>
-            {/* Menu */}
-            <div
-                onClick={handleClick}
-                className="fixed z-50 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 bottom-6 md:top-9 md:right-12"
-                >
-                <div
-                    className={`z-50 px-4 py-3 rounded-full transition-all duration-500 ${
-                    menuBox
-                        ? "bg-[#d6dcd3bf] md:bg-zinc-700 md:text-white"
-                        : "bg-white text-black md:bg-[#e7efe3bf] shadow-xl md:shadow-none"
-                    }`}
-                >
-                    <span
-                    className={`inline-block transition-transform duration-300 ${
-                        menuBox ? "-rotate-45" : "rotate-0"
-                    }`}
-                    >
-                    <i className="fi fi-rr-plus text-3xl md:text-[35px]"></i>
-                    </span>
-                </div>
-            </div>
-            {/* Menu box */}
-            {
-                menuBox && (
-                    <div id="menu" className="flex flex-col bg-white md:bg-black rounded-3xl md:rounded-[40px] z-40 fixed left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 shadow-xl bottom-2 md:right-11 md:top-8">
-                        <div className="flex flex-col md:text-white md:items-start md:pl-10 md:pr-40 gap-3 px-24 pt-10 text-4xl md:text-5xl">
-                            <button className="buttons btn">Home</button>
-                            <button className="buttons btn">Work</button>
-                            <button className="buttons btn">Services</button>
-                            <button className="buttons btn">About</button>
-                            <button className="buttons btn">Contact</button>
-                        </div>
-                        <div className="flex flex-col gap-2 text-[#5e605cbf] md:text-[#868984bf] py-8 items-center md:items-start md:px-10 text-md">
-                            <button className="buttons">Playground</button>
-                            <button className="buttons">Shop</button>
-                            <button className="buttons">Newsletter</button>
-                        </div>
-                        <div className="flex flex-row gap-4 text-[#5e605cbf] md:text-[#868984bf] text-2xl md:text-3xl justify-center md:justify-end md:px-12 pb-24">
-                            <i className="brands fi fi-brands-instagram"></i>
-                            <i className="brands fi fi-brands-behance"></i>
-                            <i className="brands fi fi-brands-linkedin"></i>
-                        </div>
-                    </div>
-                )
-            }
+            <MenuBox />
         </div>
     )
 }
