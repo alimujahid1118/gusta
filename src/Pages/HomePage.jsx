@@ -55,14 +55,6 @@ export default function HomePage() {
             }
         });
 
-        gsap.to("#hi-img", {
-            rotate: -6,
-            x: -5,
-            ease: "sine.inOut",
-            yoyo: true,
-            repeat: -1
-        })
-
         return () => tl.kill()
     }, [])
 

@@ -1,9 +1,20 @@
-import { useState } from "react";
+import gsap from "gsap";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
 
     const [ socarratClick, setSocarratClick] = useState(false)
+
+    useEffect(() => {
+        gsap.to("#hi-img", {
+            rotate: -6,
+            x: -5,
+            ease: "sine.inOut",
+            yoyo: true,
+            repeat: -1
+        })
+    }, [])
 
     return (
         <div id="black-section" className="flex flex-col gap-10 w-full pt-20 pb-36 md:pb-8 bg-black">

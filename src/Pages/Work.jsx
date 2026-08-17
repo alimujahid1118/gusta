@@ -611,7 +611,7 @@ export default function Work() {
     });
 
     return (
-        <div className="bg-black">
+        <div id="black-section" className="bg-black">
             <Logo />
             <div className="bg-black flex flex-col pt-64">
                 <div className="flex flex-col pl-6 pr-4">

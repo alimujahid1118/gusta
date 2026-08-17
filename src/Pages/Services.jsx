@@ -148,9 +148,9 @@ export default function Services() {
             else if (position === -1) {
                 // LEFT
                 gsap.to(card, {
-                    x: "-72%",
-                    scale: 0.85,
-                    opacity: 0.55,
+                    x: "-110%",
+                    scale: 1,
+                    opacity: 1,
                     zIndex: 20,
                     duration: 0.6,
                     ease: "power3.inOut"
@@ -160,9 +160,9 @@ export default function Services() {
             else if (position === 1) {
                 // RIGHT
                 gsap.to(card, {
-                    x: "72%",
-                    scale: 0.85,
-                    opacity: 0.55,
+                    x: "110%",
+                    scale: 1,
+                    opacity: 1,
                     zIndex: 20,
                     duration: 0.6,
                     ease: "power3.inOut"
@@ -172,7 +172,7 @@ export default function Services() {
             else {
                 // HIDDEN
                 gsap.to(card, {
-                    x: position < 0 ? "-150%" : "150%",
+                    x: position < 0 ? "-130%" : "130%",
                     scale: 0.7,
                     opacity: 0,
                     zIndex: 0,
@@ -279,7 +279,7 @@ export default function Services() {
     }, []);
 
     return (
-        <div>
+        <div className="overflow-x-hidden overflow-y-visible">
             <Logo />
             <div className="flex flex-col">
                 <div className="flex flex-col gap-6 pt-40 px-4">
@@ -320,9 +320,9 @@ export default function Services() {
                                         <p className="px-10 text-[#505451] md:text-xl md:pr-[550px] font-semibold leading-6">
                                             We design digital products, such as software, apps, and platforms, that are intuitive to use and made to evolve with your business. Our work spans UX/UI design, prototyping, and scalable design systems with thorough documentation, ready for modern development and AI-assisted workflows. Product design is an ongoing process. Working alongside our clients and their teams, we test, validate, and improve as the product grows and user needs evolve.
                                         </p>
-                                        <div ref={sliderRef} onScroll={handleScroll} className="flex flex-row gap-5 md:gap-6 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] py-16 md:py-20 px-4 md:px-6 w-full">
+                                        <div ref={sliderRef} onScroll={handleScroll} className="flex flex-row gap-5 md:gap-8 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] py-16 md:py-20 px-4 md:px-6 w-full md:grid md:grid-cols-3 md:overflow-visible">
                                             
-                                            <div id="card1" className="flex flex-col flex-shrink-0 w-[82vw] sm:w-[390px] md:w-[360px] gap-5 md:gap-6 pl-0">
+                                            <div id="card1" className="flex flex-col flex-shrink-0 w-[82vw] sm:w-[390px] md:w-full gap-5 md:gap-6 pl-0 md:pl-0">
                                                 <div className="relative w-full h-[420px] sm:h-[450px] md:h-[500px] rounded-[30px] overflow-hidden">
                                                     <div className="absolute z-10 left-4 top-3 flex gap-2">
                                                         <button className="text-white text-sm font-semibold bg-black/20 backdrop-blur-sm rounded-md px-4 py-2">
@@ -365,7 +365,7 @@ export default function Services() {
                                                 </div>
                                             </div>
 
-                                            <div id="card2" className="flex flex-col flex-shrink-0 w-[82vw] sm:w-[390px] md:w-[360px] gap-5 md:gap-6 pl-0">
+                                            <div id="card2" className="flex flex-col flex-shrink-0 w-[82vw] sm:w-[390px] md:w-full gap-5 md:gap-6 pl-0 md:pl-0">
                                                 <div className="relative w-full h-[420px] sm:h-[450px] md:h-[500px] rounded-[30px] overflow-hidden">
                                                     <div className="absolute z-10 left-4 top-3 flex gap-2">
                                                         <button className="text-white text-sm font-semibold bg-black/20 backdrop-blur-sm rounded-md px-4 py-2">
@@ -413,7 +413,7 @@ export default function Services() {
                                                 </div>
                                             </div>
 
-                                            <div id="card3" className="flex flex-col flex-shrink-0 w-[82vw] sm:w-[390px] md:w-[360px] gap-5 md:gap-6 pr-0">
+                                            <div id="card3" className="flex flex-col flex-shrink-0 w-[82vw] sm:w-[390px] md:w-full gap-5 md:gap-6 pr-0 md:pr-0">
                                                 <div className="relative w-full h-[420px] sm:h-[450px] md:h-[500px] rounded-[30px] overflow-hidden">
                                                     <div className="absolute z-10 left-4 top-3 flex gap-2">
                                                         <button className="text-white text-sm font-semibold bg-black/20 backdrop-blur-sm rounded-md px-4 py-2">
@@ -499,8 +499,8 @@ export default function Services() {
                                         <p className="px-10 font-semibold text-[#505451] md:text-xl md:pr-[550px] leading-6">
                                             We design websites that represent your brand and turn visitors into customers, from B2B and service websites to full eCommerce platforms. No matter the scope or goal, we focus on creating experiences that look great and feel intuitive to use. For development, we collaborate with trusted developers from our network to bring the designs to life with the care and quality they deserve.
                                         </p>
-                                        <div ref={sliderRef} onScroll={handleScroll} className="flex flex-row gap-5 md:gap-6 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] py-16 md:py-20 px-4 md:px-6 w-full">
-                                            <div id="card1" className="flex flex-col flex-shrink-0 w-[82vw] sm:w-[390px] md:w-[360px] gap-5 md:gap-6 pl-0">
+                                        <div ref={sliderRef} onScroll={handleScroll} className="flex flex-row gap-5 md:gap-8 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] py-16 md:py-20 px-4 md:px-6 w-full md:grid md:grid-cols-3 md:overflow-visible">
+                                            <div id="card1" className="flex flex-col flex-shrink-0 w-[82vw] sm:w-[390px] md:w-full gap-5 md:gap-6 pl-0 md:pl-0">
                                                 <div className="relative w-full h-[420px] sm:h-[450px] md:h-[500px] rounded-[30px] overflow-hidden">
                                                     <div className="absolute z-10 left-4 top-3 flex gap-2">
                                                         <button className="text-black text-sm font-semibold bg-black/10 backdrop-blur-sm rounded-md px-4 py-2">
@@ -542,7 +542,7 @@ export default function Services() {
                                                 </div>
                                             </div>
 
-                                            <div id="card2" className="flex flex-col flex-shrink-0 w-[82vw] sm:w-[390px] md:w-[360px] gap-5 md:gap-6 pl-0">
+                                            <div id="card2" className="flex flex-col flex-shrink-0 w-[82vw] sm:w-[390px] md:w-full gap-5 md:gap-6 pl-0 md:pl-0">
                                                 <div className="relative w-full h-[420px] sm:h-[450px] md:h-[500px] rounded-[30px] overflow-hidden">
                                                     <div className="absolute flex-wrap z-10 left-4 top-3 flex gap-2">
                                                         <button className="text-white text-sm font-semibold bg-black/20 backdrop-blur-sm rounded-md px-4 py-2">
@@ -589,7 +589,7 @@ export default function Services() {
                                                 </div>
                                             </div>
 
-                                            <div id="card3" className="flex flex-col flex-shrink-0 w-[82vw] sm:w-[390px] md:w-[360px] gap-5 md:gap-6 pr-0">
+                                            <div id="card3" className="flex flex-col flex-shrink-0 w-[82vw] sm:w-[390px] md:w-full gap-5 md:gap-6 pr-0 md:pr-0">
                                                 <div className="relative w-full h-[420px] sm:h-[450px] md:h-[500px] rounded-[30px] overflow-hidden">
                                                     <div className="absolute z-10 left-4 top-3 flex gap-2">
                                                         <button className="text-white text-sm font-semibold bg-black/20 backdrop-blur-sm rounded-md px-4 py-2">
@@ -674,9 +674,9 @@ export default function Services() {
                                         <p className="px-10 text-[#505451] md:text-xl md:pr-[550px] leading-6">
                                             We design cohesive brand identities and visual systems that turn businesses into something people recognize, remember, and love. Great brands are more than how they look. It's what makes people feel something, choose you, and come back. For ongoing brand expression, we work alongside your team to create visuals tailored to your goals and aligned with your brand, from marketing materials and social content to motion design that adds another dimension across every platform.
                                         </p>
-                                        <div ref={sliderRef} onScroll={handleScroll} className="flex flex-row gap-5 md:gap-6 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] py-16 md:py-20 px-4 md:px-6 w-full">
+                                        <div ref={sliderRef} onScroll={handleScroll} className="flex flex-row gap-5 md:gap-8 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] py-16 md:py-20 px-4 md:px-6 w-full md:grid md:grid-cols-3 md:overflow-visible">
                                             
-                                            <div id="card1" className="flex flex-col flex-shrink-0 w-[82vw] sm:w-[390px] md:w-[360px] gap-5 md:gap-6 pl-0">
+                                            <div id="card1" className="flex flex-col flex-shrink-0 w-[82vw] sm:w-[390px] md:w-full gap-5 md:gap-6 pl-0 md:pl-0">
                                                 <div className="relative w-full h-[420px] sm:h-[450px] md:h-[500px] rounded-[30px] overflow-hidden">
                                                     <div className="absolute z-10 left-4 top-3 flex gap-2">
                                                         <button className="text-white text-sm font-semibold bg-black/20 backdrop-blur-sm rounded-md px-4 py-2">
@@ -724,7 +724,7 @@ export default function Services() {
                                                 </div>
                                             </div>
 
-                                            <div id="card2" className="flex flex-col flex-shrink-0 w-[82vw] sm:w-[390px] md:w-[360px] gap-5 md:gap-6 pl-0">
+                                            <div id="card2" className="flex flex-col flex-shrink-0 w-[82vw] sm:w-[390px] md:w-full gap-5 md:gap-6 pl-0 md:pl-0">
                                                 <div className="relative w-full h-[420px] sm:h-[450px] md:h-[500px] rounded-[30px] overflow-hidden">
                                                     <div className="absolute z-10 left-4 top-3 flex gap-2">
                                                         <button className="text-white text-sm font-semibold bg-black/20 backdrop-blur-sm rounded-md px-4 py-2">
@@ -769,7 +769,7 @@ export default function Services() {
                                                 </div>
                                             </div>
 
-                                            <div id="card3" className="flex flex-col flex-shrink-0 w-[82vw] sm:w-[390px] md:w-[360px] gap-5 md:gap-6 pr-0">
+                                            <div id="card3" className="flex flex-col flex-shrink-0 w-[82vw] sm:w-[390px] md:w-full gap-5 md:gap-6 pr-0 md:pr-0">
                                                 <div className="relative w-full h-[420px] sm:h-[450px] md:h-[500px] rounded-[30px] overflow-hidden">
                                                     <div className="absolute z-10 left-4 top-3 flex gap-2">
                                                         <button className="text-white text-sm font-semibold bg-black/20 backdrop-blur-sm rounded-md px-4 py-2">
@@ -1087,165 +1087,172 @@ export default function Services() {
                 <div className="hidden md:block relative z-40">
                     <button
                         onClick={previousCard}
-                        className="absolute z-40 w-14 h-14 right-72 top-80 rounded-full bg-black text-white flex items-center justify-center text-2xl"
+                        className="absolute z-40 w-14 h-14 right-80 top-80 rounded-full bg-black text-white flex items-center justify-center text-2xl"
                     >
                         ←
                     </button>
 
                     <button
                         onClick={nextCard}
-                        className="absolute z-40 w-14 h-14 left-72 top-80 rounded-full bg-black text-white flex items-center justify-center text-2xl"
+                        className="absolute z-40 w-14 h-14 left-80 top-80 rounded-full bg-black text-white flex items-center justify-center text-2xl"
                     >
                         →
                     </button>
                 </div>
+                
                 <div
                     ref={desktopCardsRef}
-                    className="hidden md:flex relative my-20 w-full h-[600px] justify-center"
+                    className="hidden md:flex relative my-20 w-full h-[700px] justify-center"
                 >
 
                 {/* Card 1 */}
-                <div className="absolute flex flex-col flex-shrink-0 gap-4 pt-52 md:pt-72 pb-6 px-6 md:max-w-[600px] bg-[#c06642] rounded-[40px] text-white">
+                <div className="absolute flex flex-col justify-end flex-shrink-0 gap-4 pt-32 md:pt-52 md:pb-10 pb-5 px-6 md:w-[700px] md:h-[620px] md:min-h-[620px] bg-[#c06642] rounded-[40px] text-white">
                     <img
-                        className="absolute w-[600px] -top-12 md:-top-28 left-0"
+                        className="absolute w-[600px] -top-12 md:-top-28 left-1/2 -translate-x-1/2"
                         src="https://framerusercontent.com/images/t9TxfgFBjLfMjCkoWj9AOIhTM.png?width=1627&height=1024"
                         alt=""
                     />
 
-                    <h2 className="text-4xl font-semibold">
-                        Our approach
-                    </h2>
+                    <div className="relative z-10 mt-auto flex flex-col justify-end gap-3 pb-2">
+                        <h2 className="text-[2.8rem] font-semibold leading-[0.95] tracking-[-0.05em]">
+                            Our approach
+                        </h2>
 
-                    <p className="text-lg">
-                        Whether you need a new website <br />
-                        or need help with product design, <br />
-                        we understand that each project is different and needs a flexible approach.
-                        By adapting our processes to your specific needs and the people we work with,
-                        we aim to add value early on. That’s why close collaboration, exchanging ideas,
-                        and the desire to learn are fundamental in our way of working.
-                    </p>
+                        <p className="text-[1.18rem] leading-relaxed">
+                            Whether you need a new website <br />
+                            or need help with product design, <br />
+                            we understand that each project is different and needs a flexible approach.
+                            By adapting our processes to your specific needs and the people we work with,
+                            we aim to add value early on. That’s why close collaboration, exchanging ideas,
+                            and the desire to learn are fundamental in our way of working.
+                        </p>
+                    </div>
                 </div>
 
                 {/* Card 2 */}
-                <div className="absolute flex flex-col flex-shrink-0 gap-4 pt-56 md:pt-72 pb-8 px-6 md:max-w-[600px] bg-[#fed096] rounded-[40px]">
+                <div className="absolute flex flex-col justify-end flex-shrink-0 gap-4 pt-32 md:pt-52 md:pb-10 pb-5 px-6 md:w-[700px] md:h-[620px] md:min-h-[620px] bg-[#fed096] rounded-[40px]">
                     <img
-                        className="absolute w-[500px] -top-16 md:-top-28 left-0 md:left-8"
+                        className="absolute w-[500px] -top-16 md:-top-28 left-1/2 -translate-x-1/2"
                         src="https://framerusercontent.com/images/IOYBw59GsBJcKrZ5LFg4XdgrUw.png?width=1280&height=1024"
                         alt=""
                     />
 
-                    <h2 className="text-4xl font-semibold">
-                        <span className="text-2xl">Discovery</span>
-                        <br />
-                        Research
-                        <br />
-                        and insights
-                    </h2>
+                    <div className="relative z-10 mt-auto flex flex-col justify-end gap-3 pb-2">
+                        <h2 className="text-[2.8rem] font-semibold leading-[0.95] tracking-[-0.05em]">
+                            <span className="text-[1.55rem] block">Discovery</span>
+                            Research
+                            <br />
+                            and insights
+                        </h2>
 
-                    <p className="text-lg">
-                        We uncover insights through a process of exploration and research.
-                        We listen, challenge the assumptions, and separate the musts from
-                        the maybes to align collectively. It’s the first thing we do to really
-                        understand your business and create a clear vision for the project.
-                    </p>
+                        <p className="text-[1.18rem] leading-relaxed">
+                            We uncover insights through a process of exploration and research.
+                            We listen, challenge the assumptions, and separate the musts from
+                            the maybes to align collectively. It’s the first thing we do to really
+                            understand your business and create a clear vision for the project.
+                        </p>
+                    </div>
                 </div>
 
                 {/* Card 3 */}
-                <div className="absolute flex flex-col flex-shrink-0 gap-4 pt-56 md:pt-72 pb-8 px-6 md:max-w-[600px] bg-[#fe9da1] rounded-[40px]">
+                <div className="absolute flex flex-col justify-end flex-shrink-0 gap-4 pt-32 md:pt-52 md:pb-10 pb-5 px-6 md:w-[700px] md:h-[620px] md:min-h-[620px] bg-[#fe9da1] rounded-[40px]">
                     <img
-                        className="absolute w-[600px] md:w-[400px] -top-16 left-0 md:left-20"
+                        className="absolute w-[600px] md:w-[400px] -top-16 left-1/2 -translate-x-1/2"
                         src="https://framerusercontent.com/images/jTXG8nJYX1KdbMY3iJUgBNg7Mc.png?width=1280&height=1024"
                         alt=""
                     />
 
-                    <h2 className="text-4xl font-semibold">
-                        <span className="text-2xl">Exploration</span>
-                        <br />
-                        The start of a
-                        <br />
-                        solid foundation
-                    </h2>
+                    <div className="relative z-10 mt-auto flex flex-col justify-end gap-3 pb-2">
+                        <h2 className="text-[2.8rem] font-semibold leading-[0.95] tracking-[-0.05em]">
+                            <span className="text-[1.55rem] block">Exploration</span>
+                            The start of a
+                            <br />
+                            solid foundation
+                        </h2>
 
-                    <p className="text-lg">
-                        We define the bigger picture and create a solid foundation.
-                        The ideas and insights are translated into something tangible
-                        that reflects the ambition of your business. Instead of imagining
-                        solutions, we spend time to show you what the future of your
-                        business could look like.
-                    </p>
+                        <p className="text-[1.18rem] leading-relaxed">
+                            We define the bigger picture and create a solid foundation.
+                            The ideas and insights are translated into something tangible
+                            that reflects the ambition of your business. Instead of imagining
+                            solutions, we spend time to show you what the future of your
+                            business could look like.
+                        </p>
+                    </div>
                 </div>
 
                 {/* Card 4 */}
-                <div className="absolute flex flex-col flex-shrink-0 gap-4 pt-52 md:pt-80 pb-8 px-6 md:max-w-[600px] bg-[#fedec6] rounded-[40px]">
+                <div className="absolute flex flex-col justify-end flex-shrink-0 gap-4 pt-28 md:pt-44 md:pb-10 pb-5 px-6 md:w-[700px] md:h-[620px] md:min-h-[620px] bg-[#fedec6] rounded-[40px]">
                     <img
-                        className="absolute w-[300px] md:w-[400px] -top-20 left-8 md:left-20"
+                        className="absolute w-[300px] md:w-[400px] -top-20 left-1/2 -translate-x-1/2"
                         src="https://framerusercontent.com/images/CrkzWLeeZgH1SexGm9WzTueu7rI.png?width=567&height=581"
                         alt=""
                     />
 
-                    <h2 className="text-4xl font-semibold">
-                        <span className="text-2xl">Production</span>
-                        <br />
-                        Designing a
-                        <br />
-                        new reality
-                    </h2>
+                    <div className="relative z-10 mt-auto flex flex-col justify-end gap-3 pb-2">
+                        <h2 className="text-[2.8rem] font-semibold leading-[0.95] tracking-[-0.05em]">
+                            <span className="text-[1.55rem] block">Production</span>
+                            Designing a
+                            <br />
+                            new reality
+                        </h2>
 
-                    <p className="text-lg">
-                        Continuing from the defined base, we create the design in the
-                        desired direction. We’re used to working on technical projects
-                        to design functional solutions that optimize complex processes
-                        (UX/UI) and create thoughtful products that connect with people.
-                    </p>
+                        <p className="text-[1.18rem] leading-relaxed">
+                            Continuing from the defined base, we create the design in the
+                            desired direction. We’re used to working on technical projects
+                            to design functional solutions that optimize complex processes
+                            (UX/UI) and create thoughtful products that connect with people.
+                        </p>
+                    </div>
                 </div>
 
                 {/* Card 5 */}
-                <div className="absolute flex flex-col md:flex-shrink-0 gap-4 pt-[250px] md:pt-[340px] pb-8 px-6 md:max-w-[600px] bg-[#abe8b6] rounded-[40px]">
+                <div className="absolute flex flex-col justify-end md:flex-shrink-0 gap-4 pt-[180px] md:pb-10 md:pt-[220px] pb-5 px-6 md:w-[700px] md:h-[620px] md:min-h-[620px] bg-[#abe8b6] rounded-[40px]">
                     <img
-                        className="absolute w-[300px] md:w-[400px] -top-20 md:-top-28 left-8 md:left-20"
+                        className="absolute w-[300px] md:w-[400px] -top-20 md:-top-28 left-1/2 -translate-x-1/2"
                         src="https://framerusercontent.com/images/MzOY28Hj4dVsLc9WXGw1HaZVck.png?width=1048&height=1160"
                         alt=""
                     />
 
-                    <h2 className="text-4xl font-semibold">
-                        <span className="text-2xl">Validation</span>
-                        <br />
-                        Making sure we’re
-                        <br />
-                        on the right track
-                    </h2>
+                    <div className="relative z-10 mt-auto flex flex-col justify-end gap-3 pb-2">
+                        <h2 className="text-[2.8rem] font-semibold leading-[0.95] tracking-[-0.05em]">
+                            <span className="text-[1.55rem] block">Validation</span>
+                            Making sure we’re
+                            <br />
+                            on the right track
+                        </h2>
 
-                    <p className="text-lg">
-                        Our Agile way of working allows us to iterate rapidly and
-                        incrementally from the feedback of usability testing and
-                        stakeholders—whether we’re designing websites, apps, or
-                        enterprise software.
-                    </p>
+                        <p className="text-[1.18rem] leading-relaxed">
+                            Our Agile way of working allows us to iterate rapidly and
+                            incrementally from the feedback of usability testing and
+                            stakeholders—whether we’re designing websites, apps, or
+                            enterprise software.
+                        </p>
+                    </div>
                 </div>
 
                 {/* Card 6 */}
-                <div className="absolute flex flex-col md:flex-shrink-0 gap-4 pt-60 md:pt-72 pb-8 px-6 md:max-w-[600px] bg-[#abe8e8] rounded-[40px]">
+                <div className="absolute flex flex-col justify-end md:flex-shrink-0 gap-4 pt-32 md:pt-52 md:pb-10 pb-5 px-6 md:w-[700px] md:h-[620px] md:min-h-[620px] bg-[#abe8e8] rounded-[40px]">
                     <img
-                        className="absolute w-[400px] -top-12 left-0 md:left-20"
+                        className="absolute w-[400px] -top-12 left-1/2 -translate-x-1/2"
                         src="https://framerusercontent.com/images/Dls2XRURpNV5pHl9VGpiap2b8.png?width=1280&height=1024"
                         alt=""
                     />
 
-                    <h2 className="text-4xl font-semibold">
-                        <span className="text-2xl">Delivery</span>
-                        <br />
-                        A new beginning
-                    </h2>
+                    <div className="relative z-10 mt-auto flex flex-col justify-end gap-3 pb-2">
+                        <h2 className="text-[2.8rem] font-semibold leading-[0.95] tracking-[-0.05em]">
+                            <span className="text-[1.55rem] block">Delivery</span>
+                            A new beginning
+                        </h2>
 
-                    <p className="text-lg">
-                        Delivering the project is not the end for us—it’s a new beginning.
-                        We work together with your team and a living design system to ensure
-                        your evolving business continues to provide value. Together, we learn
-                        and iterate to continuously improve the experiences people have with
-                        your product.
-                    </p>
+                        <p className="text-[1.18rem] leading-relaxed">
+                            Delivering the project is not the end for us—it’s a new beginning.
+                            We work together with your team and a living design system to ensure
+                            your evolving business continues to provide value. Together, we learn
+                            and iterate to continuously improve the experiences people have with
+                            your product.
+                        </p>
+                    </div>
                 </div>
-
                 </div>
 
                 </div>

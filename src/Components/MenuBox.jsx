@@ -101,7 +101,7 @@ export default function MenuBox() {
                         className="fixed flex flex-col bg-white md:bg-black rounded-3xl md:rounded-[40px] z-40 shadow-xl bottom-0 right-0 md:bottom-auto md:top-0"
                     >
                         <div className="flex flex-col md:text-white md:items-start md:pl-10 md:pr-40 gap-3 px-24 pt-10 text-4xl md:text-5xl">
-                            <button className="buttons btn">Home</button>
+                            <Link to={`/`} className="buttons btn">Home</Link>
 
                             <Link to="/work/all" className="buttons btn text-center">
                                 Work
