@@ -23,7 +23,7 @@ export default function Footer() {
                 {/* Navigation */}
                 <div className="text-white flex flex-col gap-4 items-start text-5xl">
                     <Link to={`/work/all`}>Work</Link>
-                    <button>Services</button>
+                    <Link to={`/services`}>Services</Link>
                     <button>About</button>
                     <button>Contact</button>
                     <div className="flex flex-col text-[#91948fbf] items-start text-xl">

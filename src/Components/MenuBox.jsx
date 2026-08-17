@@ -74,50 +74,62 @@ export default function MenuBox() {
     return (
         <>
             {/* Menu */}
-            <div
-                onClick={handleClick}
-                className="fixed z-50 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 bottom-6 md:top-9 md:right-12"
-                >
-                <div
-                    className={`z-50 px-4 py-3 rounded-full transition-all duration-500 ${
-                    menuBox
-                        ? "bg-[#d6dcd3bf] md:bg-zinc-700 md:text-white"
-                        : "bg-white text-black md:bg-[#e7efe3bf] shadow-xl md:shadow-none"
+            <div className="fixed z-50 bottom-6 left-1/2 -translate-x-1/2 md:top-8 md:bottom-auto md:left-auto md:right-11 md:translate-x-0">
+
+                {/* Menu button */}
+                <button
+                    onClick={handleClick}
+                    className={`relative z-50 px-4 py-3 rounded-full transition-all duration-500 ${
+                        menuBox
+                            ? "bg-[#d6dcd3bf] md:bg-zinc-700 md:text-white"
+                            : "bg-white text-black md:bg-[#e7efe3bf] shadow-xl md:shadow-none"
                     }`}
                 >
                     <span
-                    className={`inline-block transition-transform duration-300 ${
-                        menuBox ? "-rotate-45" : "rotate-0"
-                    }`}
+                        className={`inline-block transition-transform duration-300 ${
+                            menuBox ? "-rotate-45" : "rotate-0"
+                        }`}
                     >
-                    <i className="fi fi-rr-plus text-3xl md:text-[35px]"></i>
+                        <i className="fi fi-rr-plus text-3xl md:text-[35px]"></i>
                     </span>
-                </div>
-            </div>
-            {/* Menu box */}
-            {
-                menuBox && (
-                    <div id="menu" className="flex flex-col bg-white md:bg-black rounded-3xl md:rounded-[40px] z-40 fixed left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 shadow-xl bottom-2 md:right-11 md:top-8">
+                </button>
+
+                {/* Menu box */}
+                {menuBox && (
+                    <div
+                        id="menu"
+                        className="fixed flex flex-col bg-white md:bg-black rounded-3xl md:rounded-[40px] z-40 shadow-xl bottom-0 right-0 md:bottom-auto md:top-0"
+                    >
                         <div className="flex flex-col md:text-white md:items-start md:pl-10 md:pr-40 gap-3 px-24 pt-10 text-4xl md:text-5xl">
                             <button className="buttons btn">Home</button>
-                            <Link to={"/work/all"} className="buttons btn text-center">Work</Link>
-                            <button className="buttons btn">Services</button>
+
+                            <Link to="/work/all" className="buttons btn text-center">
+                                Work
+                            </Link>
+
+                            <Link to="/services" className="buttons btn text-center">
+                                Services
+                            </Link>
+
                             <button className="buttons btn">About</button>
                             <button className="buttons btn">Contact</button>
                         </div>
+
                         <div className="flex flex-col gap-2 text-[#5e605cbf] md:text-[#868984bf] py-8 items-center md:items-start md:px-10 text-md">
                             <button className="buttons">Playground</button>
                             <button className="buttons">Shop</button>
                             <button className="buttons">Newsletter</button>
                         </div>
+
                         <div className="flex flex-row gap-4 text-[#5e605cbf] md:text-[#868984bf] text-2xl md:text-3xl justify-center md:justify-end md:px-12 pb-24">
                             <i className="brands fi fi-brands-instagram"></i>
                             <i className="brands fi fi-brands-behance"></i>
                             <i className="brands fi fi-brands-linkedin"></i>
                         </div>
                     </div>
-                )
-            }
+                )}
+
+            </div>
         </>
     )
 }

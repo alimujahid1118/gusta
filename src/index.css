@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media (min-width: 768px) and (max-width: 1238px) {
+    .services-slider {
+        gap: 18px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .services-card {
+        width: 30% !important;
+        max-width: 30% !important;
+        flex-basis: 30% !important;
+    }
+
+    .services-card-media {
+        height: 500px !important;
+    }
+}

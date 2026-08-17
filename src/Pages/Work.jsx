@@ -3,74 +3,215 @@ import Footer from "../Components/Footer";
 import Logo from "../Components/Logo";
 import MenuBox from "../Components/MenuBox";
 import { Link, useParams } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
 export default function Work() {
 
     const { category } = useParams();
     const selected = category || "all";
 
-    const handleClient1 = () => {
-        gsap.to("#client1", {
-            opacity: 1
-        })
-        gsap.to("#client2", {
-            opacity: 0
-        })
-        gsap.to("#client3", {
-            opacity: 0
-        })
-        gsap.to("#cc1", {
-            backgroundColor: "white"
-        })
-        gsap.to("#cc2", {
-            backgroundColor: "#9CA3AF"
-        })
-        gsap.to("#cc3", {
-            backgroundColor: "#9CA3AF"
-        })
+    const currentClient = useRef(0);
+    const autoTimer = useRef(null);
+
+    const totalClients = 6;
+
+    const showClient = (nextIndex, direction = 1) => {
+    const currentIndex = currentClient.current;
+
+    if (nextIndex === currentIndex) return;
+
+    const current = document.querySelector(`#client${currentIndex + 1}`);
+    const next = document.querySelector(`#client${nextIndex + 1}`);
+
+    if (!current || !next) return;
+
+    // Stop any animation currently running
+    gsap.killTweensOf(".clientTestimonial");
+
+    // Direction:
+    // 1  = next testimonial comes from right
+    // -1 = previous testimonial comes from left
+    const enterX = direction > 0 ? 2000 : -2000;
+    const exitX = direction > 0 ? -2000 : 2000;
+
+    // Put next testimonial outside the screen
+    gsap.set(next, {
+        x: enterX,
+        opacity: 1,
+    });
+
+    // Move current out
+    gsap.to(current, {
+        x: exitX,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.inOut",
+    });
+
+    // Move next in
+    gsap.to(next, {
+        x: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power2.inOut",
+    });
+
+    // Update dots
+    gsap.to(`#cc${currentIndex + 1}`, {
+        backgroundColor: "#9CA3AF",
+        duration: 0.2,
+    });
+
+    gsap.to(`#cc${nextIndex + 1}`, {
+        backgroundColor: "white",
+        duration: 0.2,
+    });
+
+    currentClient.current = nextIndex;
+};
+
+    const startAutoScrollRef = useRef(null);
+
+    useEffect(() => {
+    const ctx = gsap.context(() => {
+
+        // Initial state
+        gsap.set(".clientTestimonial", {
+            x: 0,
+            opacity: 0,
+        });
+
+        // First testimonial visible
+        gsap.set("#client1", {
+            x: 0,
+            opacity: 1,
+        });
+
+        // First dot active
+        gsap.set("#cc1", {
+            backgroundColor: "white",
+        });
+
+        gsap.set("#cc2, #cc3, #cc4, #cc5, #cc6", {
+            backgroundColor: "#9CA3AF",
+        });
+
+        // assign the auto-scroll function (stable ref) inside effect
+        startAutoScrollRef.current = () => {
+            if (autoTimer.current) {
+                autoTimer.current.kill();
+            }
+
+            autoTimer.current = gsap.delayedCall(3, () => {
+                const nextIndex = (currentClient.current + 1) % totalClients;
+
+                showClient(nextIndex, 1);
+
+                if (startAutoScrollRef.current) startAutoScrollRef.current();
+            });
+        };
+
+        // Start automatic scrolling
+        startAutoScrollRef.current && startAutoScrollRef.current();
+    });
+
+    //// client roller ////
+
+    const items = gsap.utils.toArray(".clientItem");
+    console.log(
+    items.map((item, index) => ({
+        index,
+        item
+    }))
+    );
+
+    const itemHeight = 80;
+    const total = 6;
+
+    // Start on BMW (6th item)
+    let current = total - 1;
+
+    // Initial position
+    gsap.set("#clientRoller", {
+        y: -current * itemHeight,
+    });
+
+    // Update scale + opacity based on current item
+    const updateStyles = () => {
+        items.forEach((item, i) => {
+            const distance = Math.abs(i - current);
+
+            let scale = 0.5;
+            let opacity = 0;
+
+            if (distance === 0) {
+                scale = 1;
+                opacity = 1;
+            } else if (distance === 1) {
+                scale = 0.8;
+                opacity = 0.45;
+            } else if (distance === 2) {
+                scale = 0.65;
+                opacity = 0.2;
+            }
+
+            gsap.to(item, {
+                scale,
+                opacity,
+                duration: 0.5,
+                ease: "power2.out",
+                overwrite: true,
+            });
+        });
+    };
+
+    updateStyles();
+
+    const rollerTimeline = gsap.timeline({
+        repeat: -1,
+    });
+
+    for (let i = 6; i <= 7; i++) {
+
+        // Wait
+        rollerTimeline.to({}, {
+            duration: 2,
+        });
+
+        // Move to next client
+        rollerTimeline.to("#clientRoller", {
+            y: -i * itemHeight,
+            duration: 0.8,
+            ease: "power3.inOut",
+
+            onStart: () => {
+                current = i;
+                updateStyles();
+            },
+        });
     }
 
-    const handleClient2 = () => {
-        gsap.to("#client2", {
-            opacity: 1
-        })
-        gsap.to("#client1", {
-            opacity: 0
-        })
-        gsap.to("#client3", {
-            opacity: 0
-        })
-        gsap.to("#cc2", {
-            backgroundColor: "white"
-        })
-        gsap.to("#cc1", {
-            backgroundColor: "#9CA3AF"
-        })
-        gsap.to("#cc3", {
-            backgroundColor: "#9CA3AF"
-        })
-    }
+    // Reset to original BMW (smoothly tween back instead of instant jump)
+    rollerTimeline.to("#clientRoller", {
+        y: -(total - 1) * itemHeight,
+        duration: 0.6,
+        ease: "power3.inOut",
+        onStart: () => {
+            current = total - 1;
+            updateStyles();
+        },
+    });
 
-    const handleClient3 = () => {
-        gsap.to("#client3", {
-            opacity: 1
-        })
-        gsap.to("#client1", {
-            opacity: 0
-        })
-        gsap.to("#client2", {
-            opacity: 0
-        })
-        gsap.to("#cc3", {
-            backgroundColor: "white"
-        })
-        gsap.to("#cc2", {
-            backgroundColor: "#9CA3AF"
-        })
-        gsap.to("#cc1", {
-            backgroundColor: "#9CA3AF"
-        })
-    }
+        return () => {
+            ctx.revert();
+
+            if (autoTimer.current) {
+                autoTimer.current.kill();
+            }
+
+            gsap.killTweensOf(".clientTestimonial");
+        };
+    }, []);
 
     const workData = [
         {
@@ -576,8 +717,82 @@ export default function Work() {
                                     key={index}
                                     className="col-span-1 md:col-span-2"
                                 >
-                                    {/* client demo */}
-                                    {/* <ClientDemo /> */}
+                                    {/* Client Demo */}
+
+                                    <div
+                                        key={index}
+                                        className="col-span-1 md:col-span-2"
+                                    >
+                                        <div className="relative h-[350px] md:h-[420px] rounded-[40px] md:rounded-[50px] overflow-hidden bg-[#151716]">
+
+                                            {/* Roller viewport */}
+
+                                            <div className="absolute inset-0 overflow-hidden">
+
+                                                <div
+                                                    id="clientRoller"
+                                                    className="absolute left-6 md:left-12 top-1/2 md:top-[170px] flex flex-col"
+                                                >
+
+                                                    {/* Original list */}
+
+                                                    <div className="clientItem h-[80px] leading-[80px] text-6xl md:text-7xl font-semibold origin-left">
+                                                        Nixfarma
+                                                    </div>
+
+                                                    <div className="clientItem h-[80px] leading-[80px] text-6xl md:text-7xl font-semibold origin-left">
+                                                        Consum
+                                                    </div>
+
+                                                    <div className="clientItem h-[80px] leading-[80px] text-6xl md:text-7xl font-semibold origin-left">
+                                                        LaLiga
+                                                    </div>
+
+                                                    <div className="clientItem h-[80px] leading-[80px] text-6xl md:text-7xl font-semibold origin-left">
+                                                        NIO
+                                                    </div>
+
+                                                    <div className="clientItem h-[80px] leading-[80px] text-6xl md:text-7xl font-semibold origin-left">
+                                                        Idrica
+                                                    </div>
+
+                                                    <div className="clientItem h-[80px] leading-[80px] text-6xl md:text-7xl font-semibold origin-left">
+                                                        BMW
+                                                    </div>
+
+
+                                                    {/* Duplicate list */}
+
+                                                    <div className="clientItem h-[80px] leading-[80px] text-6xl md:text-7xl font-semibold origin-left">
+                                                        Nixfarma
+                                                    </div>
+
+                                                    <div className="clientItem h-[80px] leading-[80px] text-6xl md:text-7xl font-semibold origin-left">
+                                                        Consum
+                                                    </div>
+
+                                                    <div className="clientItem h-[80px] leading-[80px] text-6xl md:text-7xl font-semibold origin-left">
+                                                        LaLiga
+                                                    </div>
+
+                                                    <div className="clientItem h-[80px] leading-[80px] text-6xl md:text-7xl font-semibold origin-left">
+                                                        NIO
+                                                    </div>
+
+                                                    <div className="clientItem h-[80px] leading-[80px] text-6xl md:text-7xl font-semibold origin-left">
+                                                        Idrica
+                                                    </div>
+
+                                                    <div className="clientItem h-[80px] leading-[80px] text-6xl md:text-7xl font-semibold origin-left">
+                                                        BMW
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
                             );
                         }
@@ -590,25 +805,151 @@ export default function Work() {
                                     className="col-span-1 md:col-span-2"
                                 >
                                     {/* testimonial */}
-                                    <div className="flex flex-col px-40 py-40">
-                                        <div className="flex flex-col min-h-[100px] relative justify-center items-center">
-                                            <div id="client1" className="absolute inset-0 flex flex-col items-center justify-center text-3xl">
-                                                <p>Hello</p>
-                                                <p>Bhai jaan</p>
+                                    <div className="flex flex-col pt-60">
+                                        <div className="flex flex-col min-h-[200px] relative justify-center items-center">
+                                            <p className="text-[#0ba5bd] absolute font-bold -top-60 text-7xl">,,</p>
+                                            <div id="client1" className="clientTestimonial absolute inset-0 flex flex-col py-40 items-center justify-center text-3xl">
+                                                <p className=" text-center text-[20px]">
+                                                    We carried out the renewal of our product with Gusta and the result has been excellent, both in design and usability, uncovering the real needs of users. You can feel the care and dedication they put into their work. The collaboration and knowledge transfer to the team have been exceptional. Highly recommended.
+                                                </p>
+                                                <div className="flex flex-col gap-6 py-10 items-center">
+                                                    <img className="w-20 rounded-full" src="https://framerusercontent.com/images/N9mUoTxeoDGiUe6mKRmZf2QTtno.png?width=360&height=360" alt="" />
+                                                    <div className="flex flex-col text-center">
+                                                        <p className="text-white text-sm font-bold">José García Travé</p>
+                                                        <p className="text-[#959292] text-sm font-semibold">Managing Director at Pulso</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div id="client2" className="absolute inset-0 opacity-0 flex flex-col items-center justify-center text-3xl">
-                                                <p>Hello</p>
-                                                <p>Ayan jaan</p>
+                                            <div id="client2" className="clientTestimonial absolute opacity-0 inset-0 flex flex-col py-40 items-center justify-center text-3xl">
+                                                <p className=" text-center text-[20px]">
+                                                    As a developer, it’s a huge relief to collaborate with designers who truly understand how the online world works. Designers with a genuine grasp of code and user interfaces are rare, and I’m thrilled to include Gusta in as many projects as possible.
+                                                </p>
+                                                <div className="flex flex-col gap-6 py-10 items-center">
+                                                    <img className="w-20 rounded-full" src="https://framerusercontent.com/images/KwQIyF6ddPvJyvGzhxNX7Dezqbw.png?width=100&height=100" alt="" />
+                                                    <div className="flex flex-col text-center">
+                                                        <p className="text-white text-sm font-bold">Mustafa Avdic</p>
+                                                        <p className="text-[#959292] text-sm font-semibold">Founder and developer at Code Clear</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div id="client3" className="absolute inset-0 opacity-0 flex flex-col items-center justify-center text-3xl">
-                                                <p>Bye</p>
-                                                <p>Ayan jaan</p>
+                                            <div id="client3" className="clientTestimonial absolute opacity-0 inset-0 flex flex-col py-40 items-center justify-center text-3xl">
+                                                <p className=" text-center text-[20px]">
+                                                    We love Gusta. They’re proactive, sharp, and never afraid to challenge us.
+                                                </p>
+                                                <div className="flex flex-col gap-6 py-10 items-center">
+                                                    <img className="w-20 rounded-full" src="https://framerusercontent.com/images/Xk8HtUi47dlF2McwJj2yZxovIs4.jpg?width=454&height=454" alt="" />
+                                                    <div className="flex flex-col text-center">
+                                                        <p className="text-white text-sm font-bold">Kees Henniphof</p>
+                                                        <p className="text-[#959292] text-sm font-semibold">VP Marketing at CHILI publish</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="client4" className="clientTestimonial absolute opacity-0 inset-0 flex flex-col py-40 items-center justify-center text-3xl">
+                                                <p className=" text-center text-[20px]">
+                                                    UX designers often focus solely on usability, overlooking the importance of conveying the emotional essence that sets a brand apart. Gusta always excels at transforming our brand concepts and identities into website and UX design that truly reflect the brand we’re working for.
+                                                </p>
+                                                <div className="flex flex-col gap-6 py-10 items-center">
+                                                    <img className="w-20 rounded-full" src="https://framerusercontent.com/images/B6vAUM4ZDUs92CPjhG0KbglYD30.png?width=800&height=800" alt="" />
+                                                    <div className="flex flex-col text-center">
+                                                        <p className="text-white text-sm font-bold">Niels Vrijhoeven</p>
+                                                        <p className="text-[#959292] text-sm font-semibold">Independent creative brand strategist</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="client5" className="clientTestimonial absolute opacity-0 inset-0 flex flex-col py-40 items-center justify-center text-3xl">
+                                                <p className=" text-center text-[20px]">
+                                                    Collaborating with Gusta is always a pleasure. Their understanding of design enhances my creative ideas, bringing them to the next level with clever UX solutions and animation. On top of that, they’re a bunch of really nice people to work with.
+                                                </p>
+                                                <div className="flex flex-col gap-6 py-10 items-center">
+                                                    <img className="w-20 rounded-full" src="https://framerusercontent.com/images/dIsRAtKeoDDmSrGjYDRyg2blr10.png?width=800&height=800" alt="" />
+                                                    <div className="flex flex-col text-center">
+                                                        <p className="text-white text-sm font-bold">Jop Quirindongo</p>
+                                                        <p className="text-[#959292] text-sm font-semibold">Visual identity designer at Lowres Creative Studio</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="client6" className="clientTestimonial absolute opacity-0 inset-0 flex flex-col py-40 items-center justify-center text-3xl">
+                                                <p className=" text-center text-[20px]">
+                                                    We hired Gusta to redesign our software from scratch with the goal to optimize existing and new functionalities while offering an unparalleled user experience. I can highly recommend them to any company looking to improve their existing product or when there is a need to develop something new.
+                                                </p>
+                                                <div className="flex flex-col gap-6 py-10 items-center">
+                                                    <img className="w-20 rounded-full" src="https://framerusercontent.com/images/ZW8AemcJonJ2n90urQE2mcz95o.png?width=200&height=200" alt="" />
+                                                    <div className="flex flex-col text-center">
+                                                        <p className="text-white text-sm font-bold">Jan-Douwe Gaastra</p>
+                                                        <p className="text-[#959292] text-sm font-semibold">CEO at Facilitee</p>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div className="flex flex-row gap-4 mt-6 items-center justify-center">
-                                            <p id="cc1" onClick={handleClient1} className="bg-white p-1 rounded-full"></p>
-                                            <p id="cc2" onClick={handleClient2} className="bg-gray-400 p-1 rounded-full"></p>
-                                            <p id="cc3" onClick={handleClient3} className="bg-gray-400 p-1 rounded-full"></p>
+                                        
+                                        <div className="flex flex-row gap-3 mt-48 items-center justify-center">
+
+                                            <button
+                                                id="cc1"
+                                                type="button"
+                                                                                        onClick={() => {
+                                                                                            showClient(0, currentClient.current > 0 ? -1 : 1);
+                                                                                            startAutoScrollRef.current && startAutoScrollRef.current();
+                                                                                        }}
+                                                className="bg-white p-1 rounded-full cursor-pointer"
+                                                aria-label="Show client 1"
+                                            />
+
+                                            <button
+                                                id="cc2"
+                                                type="button"
+                                                onClick={() => {
+                                                    showClient(1, currentClient.current > 1 ? -1 : 1);
+                                                    startAutoScrollRef.current && startAutoScrollRef.current();
+                                                }}
+                                                className="bg-gray-400 p-1 rounded-full cursor-pointer"
+                                                aria-label="Show client 2"
+                                            />
+
+                                            <button
+                                                id="cc3"
+                                                type="button"
+                                                onClick={() => {
+                                                    showClient(2, currentClient.current > 2 ? -1 : 1);
+                                                    startAutoScrollRef.current && startAutoScrollRef.current();
+                                                }}
+                                                className="bg-gray-400 p-1 rounded-full cursor-pointer"
+                                                aria-label="Show client 3"
+                                            />
+
+                                            <button
+                                                id="cc4"
+                                                type="button"
+                                                onClick={() => {
+                                                    showClient(3, currentClient.current > 3 ? -1 : 1);
+                                                    startAutoScrollRef.current && startAutoScrollRef.current();
+                                                }}
+                                                className="bg-gray-400 p-1 rounded-full cursor-pointer"
+                                                aria-label="Show client 4"
+                                            />
+
+                                            <button
+                                                id="cc5"
+                                                type="button"
+                                                onClick={() => {
+                                                    showClient(4, currentClient.current > 4 ? -1 : 1);
+                                                    startAutoScrollRef.current && startAutoScrollRef.current();
+                                                }}
+                                                className="bg-gray-400 p-1 rounded-full cursor-pointer"
+                                                aria-label="Show client 5"
+                                            />
+
+                                            <button
+                                                id="cc6"
+                                                type="button"
+                                                onClick={() => {
+                                                    showClient(5, currentClient.current > 5 ? -1 : 1);
+                                                    startAutoScrollRef.current && startAutoScrollRef.current();
+                                                }}
+                                                className="bg-gray-400 p-1 rounded-full cursor-pointer"
+                                                aria-label="Show client 6"
+                                            />
+
                                         </div>
                                     </div>
                                 </div>
