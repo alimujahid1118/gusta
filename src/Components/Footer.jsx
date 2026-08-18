@@ -35,7 +35,7 @@ export default function Footer() {
                 <div className="text-white flex flex-col gap-4 items-start text-5xl">
                     <Link to={`/work/all`}>Work</Link>
                     <Link to={`/services`}>Services</Link>
-                    <button>About</button>
+                    <Link to={`/about`}>About</Link>
                     <button>Contact</button>
                     <div className="flex flex-col text-[#91948fbf] items-start text-xl">
                         <button>FAQ</button>

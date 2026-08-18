@@ -111,7 +111,7 @@ export default function MenuBox() {
                                 Services
                             </Link>
 
-                            <button className="buttons btn">About</button>
+                            <Link to="/about" className="buttons btn text-center">About</Link>
                             <button className="buttons btn">Contact</button>
                         </div>
 
