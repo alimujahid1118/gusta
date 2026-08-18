@@ -177,18 +177,123 @@ export default function About () {
                     </p>
                 </div>
             </div>
-            <div className="flex flex-col relative py-10 px-8">
+            <div className="flex flex-col relative py-8 px-4">
                 <div className="flex flex-row">
                     <div className="relative w-40 h-56">
                     <img className="absolute w-full h-full object-cover rounded-[40px]" src="https://framerusercontent.com/images/vOvu04Nm8NMxnGdX3qbbHMGuyjE.jpg?width=770&height=1080" alt="" />
                     </div>
-                    <div className="relative -right-20 -top-9 w-40 h-64">
+                    <div className="relative -right-16 -top-9 w-40 h-64">
                         <video loop autoPlay muted className="w-full h-full object-cover rounded-[20px]" src="https://framerusercontent.com/assets/mOHnupLJiZmD5PeerE3ZhlcC5W8.mp4" />
                     </div>
                 </div>
                 <div className="relative w-80 h-52">
                     <img className="absolute -right-14 w-full h-full object-cover rounded-[40px]" src="https://framerusercontent.com/images/PDsLJ57BGXhbosPpfgWqxIoqlE8.jpg?width=1310&height=1050" alt="" />
-                    <img className="absolute w-32 -bottom-8 -right-14" src="https://framerusercontent.com/images/58QIauTu8GEQmyhmiSxtimHNgeU.png?width=3140&height=2973" alt="" />
+                    <img className="absolute w-32 -bottom-12 -right-14" src="https://framerusercontent.com/images/58QIauTu8GEQmyhmiSxtimHNgeU.png?width=3140&height=2973" alt="" />
+                </div>
+            </div>
+            <div className="flex flex-col gap-8 bg-[#fff1d6] p-8">
+                <div className="flex flex-col gap-6">
+                    <h3 className="text-[34px] leading-9 font-normal">
+                        Meet our team <br />
+                        of versatile creatives
+                    </h3>
+                    <p className="text-[#474747] text-[22px] leading-7">We’re purposely small, meaning no fuss, but room for focus on big ideas, challenges, and results. We’re all hands-on creative, with diverse backgrounds and experiences, striving for top-notch quality work, designing products people love to use.</p>
+                </div>
+                <div className="grid grid-cols-2 gap-4 items-center justify-center">
+                    <div className="flex flex-col gap-4">
+                        <img className="aspect-[640/860] rounded-lg" src="https://framerusercontent.com/images/gISsr3aViWo2DodcFvmbKQGvmX4.jpg?width=770&height=992" alt="" />
+                        <div className="flex flex-col gap-1">
+                            <p className="font-semibold">Luz Andreu</p>
+                            <p>Designer</p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col gap-4">
+                        <img className="aspect-[640/860] rounded-lg" src="https://framerusercontent.com/images/wPDEhg38h4WQVNS9eUSBxgNyprc.jpg?width=770&height=992" alt="" />
+                        <div className="flex flex-col gap-1">
+                            <p className="font-semibold">Mar Albiol</p>
+                            <p>Managing Director</p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col gap-4">
+                        <img className="aspect-[640/860] rounded-lg" src="https://framerusercontent.com/images/IHNhZ3uY4x2aAia8ferpm7ESIw.jpg?width=770&height=992" alt="" />
+                        <div className="flex flex-col gap-1">
+                            <p className="font-semibold">Estrella Gracia</p>
+                            <p>Designer</p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col gap-4">
+                        <img className="aspect-[640/860] rounded-lg" src="https://framerusercontent.com/images/lslVPZTG4nhntKXLUuntwdGI3k.jpg?width=770&height=992" alt="" />
+                        <div className="flex flex-col gap-1">
+                            <p className="font-semibold">Kevin van der Wijst</p>
+                            <p>Design Director</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="bg-[#abe8e8] py-10 flex flex-col items-center justify-center">
+                <div className="flex flex-col gap-6 max-w-[300px] items-start justify-start">
+                    <img className="w-24" src="/world-logo.png" alt="" />
+                    <div className="flex flex-col gap-5">
+                        <h3 className="text-[28px] font-semibold">Design for change</h3>
+                        <p className="text-[#080a0ccc] text-[18px]">Once a year, we like to dedicate our time to providing services to non-profit organizations or social good projects. With this initiative we aim to make design more accessible to organizations positively impacting the world.</p>
+                    </div>
+                    <div className="flex flex-row items-center justify-center gap-4">
+                        <div className="bg-white flex justify-center items-center w-4 h-4 mt-1 rounded-full">
+                            <div className="bg-red-500 w-3 h-3 rounded-full"></div>
+                        </div>
+                        <p className="text-[17px] font-semibold">Currently closed for applications</p>
+                    </div>
+                </div>
+            </div>
+            {/* Mobile */}
+            <div className="flex flex-col items-center gap-10 bg-white md:hidden">
+                <div className="bg-[#fcc113] relative flex flex-col w-full py-10 pl-6 pr-10 gap-8">
+                    <h2 className="text-3xl pr-36 font-semibold">Stay connected with updates, insights, and inspiration.</h2>
+                    <div className="w-[250px] h-[450px] rounded-xl">
+                        <video loop muted autoPlay className="rounded-2xl" src="https://framerusercontent.com/assets/7lIGZQ6m8lkueVE4gq0N7vp8aRM.mp4"></video>
+                        <button className="absolute bottom-14 text-white font-semibold text-md bg-slate-400/60 mx-3 rounded-sm px-4 py-2">@gusta.studio</button>
+                    </div>
+                </div>
+            </div>
+            <div className="relative flex flex-col py-10 px-6 gap-6 text-center bg-[#fff1d6] md:hidden">
+                <img className="absolute w-28 -top-11 right-6" src="https://framerusercontent.com/images/pqmEbEHZ6IodkvP01Yoz5uBYu9U.png?width=2704&height=2133" alt="" />
+                <h2 className="text-4xl font-semibold">The Socarrat</h2>
+                <p className="text-lg px-6">Our newsletter with a digestible selection of inspiring finds. Sent every month, from our screen to yours.</p>
+                <div className="flex flex-row gap-6 justify-center items-center">
+                    <button className="bg-black text-white text-lg font-bold px-6 py-3 rounded-3xl">
+                        Subscribe
+                    </button>
+                    <Link className="flex flex-row text-xl gap-4">
+                        <p className="font-semibold">Archive</p>
+                        <p>{`>`}</p>
+                    </Link>
+                </div>
+            </div>
+            {/* Desktop */}
+            <div className="hidden bg-[#fcc113] md:relative md:flex flex-col items-center w-full py-10 pl-6 pr-10 gap-8">
+                <h2 className="text-[40px] pr-36 font-semibold max-w-[700px]">Stay connected with updates, insights, and inspiration.</h2>
+                <div className="flex flex-row gap-6">
+                    <div className="w-[300px] h-[550px] rounded-xl">
+                        <video loop muted autoPlay className="rounded-2xl" src="https://framerusercontent.com/assets/7lIGZQ6m8lkueVE4gq0N7vp8aRM.mp4"></video>
+                        <button className="absolute top-[670px] text-white font-semibold text-md bg-slate-400/60 mx-3 rounded-sm px-4 py-2">@gusta.studio</button>
+                    </div>
+                    <div className="flex items-end">
+                        <img className="w-[400px] rounded-full" src="stay-connected.avif" alt="" />
+                    </div>
+                </div>
+                <div className="hidden md:relative md:flex md:flex-col max-w-[700px] rounded-[60px] py-16 px-6 gap-10 text-center bg-[#fff1d6]">
+                    <img className="absolute w-28 -top-11 right-6" src="https://framerusercontent.com/images/pqmEbEHZ6IodkvP01Yoz5uBYu9U.png?width=2704&height=2133" alt="" />
+                    <h2 className="text-6xl font-semibold">The Socarrat</h2>
+                    <p className="text-lg px-40">Our newsletter with a digestible selection of inspiring finds. Sent every month, from our screen to yours.</p>
+                    <div className="flex flex-row gap-6 justify-center items-center">
+                        <button className="bg-black text-white text-lg font-bold px-6 py-3 rounded-3xl">
+                            Subscribe
+                        </button>
+                        <Link className="flex flex-row text-xl gap-4">
+                            <p className="font-semibold">Previous issues</p>
+                            <p>{`>`}</p>
+                        </Link>
+                    </div>
                 </div>
             </div>
             <Footer />

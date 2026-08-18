@@ -74,7 +74,7 @@ export default function MenuBox() {
     return (
         <>
             {/* Menu */}
-            <div className="fixed z-50 bottom-6 left-1/2 -translate-x-1/2 md:top-8 md:bottom-auto md:left-auto md:right-11 md:translate-x-0">
+            <div className="fixed z-50 bottom-6 left-1/2 -translate-x-1/2 md:top-6 md:bottom-auto md:left-auto md:right-11 md:translate-x-0">
 
                 {/* Menu button */}
                 <button
@@ -97,11 +97,30 @@ export default function MenuBox() {
                 {/* Menu box */}
                 {menuBox && (
                     <div
-                        id="menu"
-                        className="fixed flex flex-col bg-white md:bg-black rounded-3xl md:rounded-[40px] z-40 shadow-xl bottom-0 right-0 md:bottom-auto md:top-0"
-                    >
+                            id="menu"
+                            className="
+                                fixed
+                                left-1/2
+                                -translate-x-1/2
+                                bottom-0
+
+                                flex flex-col
+                                bg-white
+                                md:bg-black
+                                rounded-3xl
+                                md:rounded-[40px]
+                                z-40
+                                shadow-xl
+
+                                md:left-auto
+                                md:-right-1
+                                md:translate-x-0
+                                md:-top-1
+                                md:bottom-auto
+                            "
+                        >
                         <div className="flex flex-col md:text-white md:items-start md:pl-10 md:pr-40 gap-3 px-24 pt-10 text-4xl md:text-5xl">
-                            <Link to={`/`} className="buttons btn">Home</Link>
+                            <Link to={`/`} className="buttons btn text-center">Home</Link>
 
                             <Link to="/work/all" className="buttons btn text-center">
                                 Work
@@ -121,7 +140,7 @@ export default function MenuBox() {
                             <button className="buttons">Newsletter</button>
                         </div>
 
-                        <div className="flex flex-row gap-4 text-[#5e605cbf] md:text-[#868984bf] text-2xl md:text-3xl justify-center md:justify-end md:px-12 pb-24">
+                        <div className="flex flex-row gap-4 text-[#5e605cbf] md:text-[#868984bf] text-2xl md:text-3xl justify-center md:justify-end md:px-12 pb-10">
                             <i className="brands fi fi-brands-instagram"></i>
                             <i className="brands fi fi-brands-behance"></i>
                             <i className="brands fi fi-brands-linkedin"></i>
