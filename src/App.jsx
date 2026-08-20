@@ -3,6 +3,7 @@ import HomePage from "./Pages/HomePage"
 import Work from "./Pages/Work"
 import Services from "./Pages/Services"
 import About from "./Pages/About"
+import Contact from "./Pages/Contact"
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <Route path="/work/:category" element={<Work />} />
       <Route path="/services" element={<Services />} />
       <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
     </BrowserRouter>
   )

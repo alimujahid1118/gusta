@@ -108,12 +108,14 @@ export default function About () {
 
     useEffect(() => {
         const bars = gsap.utils.toArray(".bar")
+        const isDesktop = window.matchMedia("(min-width: 768px)").matches
+        const barShift = isDesktop ? 65 : 40
 
         const tl = gsap.timeline({ repeat: -1 })
 
         bars.forEach((bar) => {
             tl.to(bar, {
-                x: 40,
+                x: barShift,
                 duration: 5,
             })
         })
@@ -213,7 +215,8 @@ export default function About () {
                 <h1 className="text-[32px] font-normal leading-9 md:pr-8 md:text-[40px]">We design digital products and brands people love.</h1>
                 <p className="text-[20px] text-[#505451] md:text-[22px]">We believe in creating more than just functional solutions. We love to craft experiences that bridge people, businesses, and technology by designing products and brands that are intuitive, impactful, and drive progress, all while having fun along the way. We put people first, from the team we nurture and the collaborators we partner with to the people using what we create.</p>
             </div>
-            <div className="flex flex-col gap-14 py-16 px-8 items-end">
+            {/* Mobile */}
+            <div className="flex flex-col gap-14 py-16 px-8 items-end md:hidden">
                 <div className="flex relative w-64 h-48">
                     <img className="absolute w-24 -top-16 -right-6" src="https://framerusercontent.com/images/ulqG2xXxRRX7rnPnEXctaYgE.png?width=702&height=520" alt="" />
                     <img className="w-full h-full object-cover rounded-[25px]" src="https://framerusercontent.com/images/eeyff7IaqXENEEDIzO6X30SogHw.jpg?width=1310&height=1500" alt="" />
@@ -223,7 +226,7 @@ export default function About () {
                     <img className="w-full h-full object-cover rounded-[25px]" src="https://framerusercontent.com/images/Ysn5CSGJ8du7ISLWeD0hZrsMncU.jpg?width=1040&height=1240" alt="" />
                 </div>
             </div>
-            <div className="flex flex-col gap-6 px-8">
+            <div className="flex flex-col gap-6 px-8 md:hidden">
                 <h2 className="text-[34px] leading-9">Based in Valencia, <br /> working worldwide.</h2>
                 <p className="text-[#505451] text-[21px] leading-9">
                     We help companies explore <br />
@@ -232,98 +235,130 @@ export default function About () {
                     Being curious and having clear communication in our collaborations guide us at every step, helping us to understand, adapt, and move forward. 
                 </p>
             </div>
-            <div className="flex flex-col py-8 px-6 gap-4">
-                <div className="flex flex-col gap-4">
-                    <div className="bg-[#abe8e8] flex flex-col relative rounded-[30px] items-start px-6 py-4">
-                        <img className="absolute w-14 right-4 -bottom-2" src="https://framerusercontent.com/images/Ee7newnG9WuOVtlpRsYtRGX8iTg.png?width=165&height=311" alt="" />
-                        <p className="text-[20px]">Founded in Amsterdam</p>
-                        <p className="text-[40px] font-bold tracking-tighter">3187</p>
-                        <p className="text-[20px]">days ago</p>
+            {/* Desktop */}
+            <div className="hidden md:block relative h-[980px]">
+                <div className="absolute left-1/2 -translate-x-1/2">
+                    <div className="md:flex flex-col gap-14 py-16 px-8 items-end">
+                        <div className="flex absolute -right-[340px] w-[450px] h-[350px]">
+                            <img className="absolute w-28 -top-[75px] -right-4" src="https://framerusercontent.com/images/ulqG2xXxRRX7rnPnEXctaYgE.png?width=702&height=520" alt="" />
+                            <img className="w-full h-full object-cover rounded-[25px]" src="https://framerusercontent.com/images/eeyff7IaqXENEEDIzO6X30SogHw.jpg?width=1310&height=1500" alt="" />
+                        </div>
+                        <div className="flex absolute -left-[330px] top-[180px] w-[260px] h-[300px]">
+                            <img className="absolute w-20 -bottom-6 -right-4" src="https://framerusercontent.com/images/lMWbRhfBbnPWFA5yuMZG1NgFEX4.png?width=322&height=322" alt="" />
+                            <img className="w-full h-full object-cover rounded-[40px]" src="https://framerusercontent.com/images/Ysn5CSGJ8du7ISLWeD0hZrsMncU.jpg?width=1040&height=1240" alt="" />
+                        </div>
                     </div>
-                    <div className="bg-[#fed096] flex flex-col rounded-[15px] items-start px-6 py-4">
-                        <p className="text-[40px] font-bold tracking-tighter">4</p>
-                        <p className="text-[20px]">
+                </div>
+                <div className="relative left-1/2 -translate-x-1/2">
+                    <div className="absolute left-[520px] top-[500px]">
+                        <div className="md:flex flex-col gap-6 px-8">
+                            <h2 className="text-[38px] font-semibold leading-9">Based in Valencia, <br /> working worldwide.</h2>
+                            <p className="text-[#505451] font-semibold text-[21px] max-w-[420px] leading-9">
+                                We help companies explore
+                                and establish new business opportunities, empowering them to lead and push their industries forward. And like the international businesses we work with,
+                                our studio is constantly evolving, driven to shape what’s next.
+                                Being curious and having clear communication in our collaborations guide us at every step, helping us to understand, adapt, and move forward. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="flex flex-col md:items-center py-8 px-6 gap-4">
+                <div className="flex flex-col md:flex-row gap-4">
+                    <div className="bg-[#abe8e8] flex flex-col relative rounded-[30px] items-start px-6 md:pl-10 md:pr-20 py-4 md:pt-8 md:pb-16">
+                        <img className="absolute w-14 md:w-16 right-4 md:right-8 -bottom-2" src="https://framerusercontent.com/images/Ee7newnG9WuOVtlpRsYtRGX8iTg.png?width=165&height=311" alt="" />
+                        <p className="text-[20px] md:text-[22px]">Founded in Amsterdam</p>
+                        <p className="text-[40px] md:text-[80px] font-bold tracking-tighter">3187</p>
+                        <p className="text-[20px] md:text-[22px]">days ago</p>
+                    </div>
+                    <div className="bg-[#fed096] flex flex-col rounded-[15px] items-start md:justify-end px-6 md:px-12 py-4 md:pt-4 md:pb-8">
+                        <p className="text-[40px] md:text-[80px] font-bold tracking-tighter">4</p>
+                        <p className="text-[20px] md:text-[22px]">
                             Versatile creatives tackling <br />
                             big ideas and challenges
                         </p>
                     </div>
                 </div>
-                <div className="bg-[#fcc113] flex flex-col relative rounded-[30px] items-start px-6 py-4">
+                <div className="bg-[#fcc113] flex flex-col relative rounded-[30px] items-start px-6 py-4 md:pl-10 md:pr-[190px] md:pt-2 md:pb-8">
                     <img className="absolute w-14 right-4 -bottom-2" src="https://framerusercontent.com/images/YF38mVRvtVps7hZm23Zhovml6zA.png?width=179&height=372" alt="" />
-                    <p className="text-[40px] font-bold tracking-tighter">4:1</p>
-                    <p className="text-[20px]">
+                    <p className="text-[40px] md:text-[80px] font-bold tracking-tighter">4:1</p>
+                    <p className="text-[20px] md:text-[22px] md:hidden">
                         Working and learning ratio <br />
                         driving weekly growth
                     </p>
+                    <p className="hidden md:block text-[20px] md:text-[22px]">
+                        Working and learning ratio driving weekly growth
+                    </p>
                 </div>
             </div>
-            <div className="flex flex-col gap-4 items-center p-8 justify-center bg-[#f1f0ee]">
-                <div className="flex justify-center w-full h-[300px]">
+            <div className="flex flex-col md:flex-row md:max-w-[700px] md:ml-10 md:rounded-[35px] gap-4 md:gap-8 items-center p-8 md:pt-0 md:pb-16 md:px-6 justify-center bg-[#f9f7f2]">
+                <div className="flex justify-center w-full md:w-[1650px] h-[300px] md:h-[440px]">
                     <img className="w-full h-full object-cover rounded-[25px]" src="https://framerusercontent.com/images/3zyamXyTfM5BPKATYuvuk6LsJ8E.jpg?width=1230&height=1440" alt="" />
                 </div>
-                <div className="flex flex-col items-start gap-6">
+                <div className="flex flex-col md:relative items-start md:pt-14 gap-6">
                     <div className="flex flex-col gap-4">
-                        <h2 className="text-[38px] font-semibold">What we do</h2>
-                        <p className="text-[#505451] text-[21px]">Our expertise lies in designing useful digital products, websites, and brands that resonate for forward-thinking businesses. We leverage our eye for detail, a strong understanding of technology, and a mind for strategic execution to provide a lasting value and drive results.</p>
+                        <h2 className="text-[38px] md:text-[40px] font-semibold md:font-bold">What we do</h2>
+                        <p className="text-[#505451] text-[21px] md:text-[23px] md:pr-4">Our expertise lies in designing useful digital products, websites, and brands that resonate for forward-thinking businesses. We leverage our eye for detail, a strong understanding of technology, and a mind for strategic execution to provide a lasting value and drive results.</p>
                     </div>
-                    <Link className="text-white text-[17px] font-bold bg-black rounded-[40px] px-6 pt-2 pb-3">Our services</Link>
+                    <Link className="text-white text-[17px] md:text-[22px] font-bold bg-black rounded-[40px] px-6 pt-2 pb-3">Our services</Link>
+                    <img className="hidden md:block absolute w-36 -right-10 -bottom-24" src="https://framerusercontent.com/images/3Tt8VxUA3BMBPBv6x4PYbUq2ec.png?width=600&height=504" alt="" />
                 </div>
             </div>
-            <div className="flex flex-col gap-8 p-8">
-                <div className="w-60 h-80">
+            <div className="flex flex-col md:items-end gap-8 md:gap-24 p-8 md:px-64 md:py-28">
+                <div className="w-60 md:w-[450px] h-80 md:h-[650px]">
                     <img className="w-full h-full object-cover rounded-[25px]" src="https://framerusercontent.com/images/w4uzxOi333MWYLthKXdqGlqEuQ.png?width=2080&height=2880" alt="" />
                 </div>
-                <div className="pr-20">
+                <div className="pr-20 md:pr-0">
                     <p className="text-[22px] text-[#505451]">
                         Gusta was founded by <img className="w-7 h-5 inline-block mb-1 rounded-sm" src="https://flagcdn.com/es.svg" alt="" /> <b>Mar Albiol</b> and <img className="w-7 h-5 inline-block mb-1 rounded-sm" src="https://flagcdn.com/nl.svg" alt="" /> <img className="w-7 h-5 inline-block mb-1 rounded-sm" src="https://flagcdn.com/aw.svg" alt="" /> <b>Kevin van der Wijst</b>. Since the start in 2017, we’ve dedicated ourselves to making sure our studio is a comfortable place to sustainably do great work. An inclusive workplace with a healthy and respectful work culture, where you can feel empowered, be honest, learn and exchange ideas with each other. It’s way more fun like that. We think that having fun is the best way to create—and it shows in our way of working and the products we design.
                     </p>
                 </div>
             </div>
-            <div className="flex flex-col relative py-8 px-4">
-                <div className="flex flex-row">
-                    <div className="relative w-40 h-56">
+            <div className="flex flex-col md:items-center md:max-w-[1100px] relative py-8 px-4 md:px-0 md:pt-20">
+                <div className="flex flex-row md:gap-8">
+                    <div className="relative w-40 md:w-[340px] h-56 md:h-[460px] md:-top-[90px]">
                     <img className="absolute w-full h-full object-cover rounded-[40px]" src="https://framerusercontent.com/images/vOvu04Nm8NMxnGdX3qbbHMGuyjE.jpg?width=770&height=1080" alt="" />
                     </div>
-                    <div className="relative -right-16 -top-9 w-40 h-64">
+                    <div className="relative -right-16 -top-9 w-40 md:w-52 h-64 md:h-80">
                         <video loop autoPlay muted className="w-full h-full object-cover rounded-[20px]" src="https://framerusercontent.com/assets/mOHnupLJiZmD5PeerE3ZhlcC5W8.mp4" />
                     </div>
                 </div>
-                <div className="relative w-80 h-52">
+                <div className="relative w-80 md:w-[550px] md:h-[380px] md:left-[120px] md:-top-10 h-52">
                     <img className="absolute -right-14 w-full h-full object-cover rounded-[40px]" src="https://framerusercontent.com/images/PDsLJ57BGXhbosPpfgWqxIoqlE8.jpg?width=1310&height=1050" alt="" />
-                    <img className="absolute w-32 -bottom-12 -right-14" src="https://framerusercontent.com/images/58QIauTu8GEQmyhmiSxtimHNgeU.png?width=3140&height=2973" alt="" />
+                    <img className="absolute w-32 md:w-72 -bottom-12 md:-bottom-24 -right-14 md:-left-24" src="https://framerusercontent.com/images/58QIauTu8GEQmyhmiSxtimHNgeU.png?width=3140&height=2973" alt="" />
                 </div>
             </div>
-            <div className="flex flex-col gap-8 bg-[#fff1d6] p-8">
-                <div className="flex flex-col gap-6">
-                    <h3 className="text-[34px] leading-9 font-normal">
+            <div className="flex flex-col md:items-center gap-8 bg-[#fff1d6] p-8">
+                <div className="flex flex-col md:max-w-[730px] gap-6">
+                    <h3 className="text-[34px] md:text-[43px] leading-9 md:leading-10 font-normal">
                         Meet our team <br />
                         of versatile creatives
                     </h3>
-                    <p className="text-[#474747] text-[22px] leading-7">We’re purposely small, meaning no fuss, but room for focus on big ideas, challenges, and results. We’re all hands-on creative, with diverse backgrounds and experiences, striving for top-notch quality work, designing products people love to use.</p>
+                    <p className="text-[#474747] text-[22px] md:text-[23px] pr-[290px] leading-7">We’re purposely small, meaning no fuss, but room for focus on big ideas, challenges, and results. We’re all hands-on creative, with diverse backgrounds and experiences, striving for top-notch quality work, designing products people love to use.</p>
                 </div>
-                <div className="grid grid-cols-2 gap-4 items-center justify-center">
-                    <div className="flex flex-col gap-4">
+                <div className="grid grid-cols-2 gap-4 md:max-w-[730px] md:py-5 items-center justify-center">
+                    <div className="flex flex-col gap-4 md:py-5">
                         <img className="aspect-[640/860] rounded-lg" src="https://framerusercontent.com/images/gISsr3aViWo2DodcFvmbKQGvmX4.jpg?width=770&height=992" alt="" />
                         <div className="flex flex-col gap-1">
                             <p className="font-semibold">Luz Andreu</p>
                             <p>Designer</p>
                         </div>
                     </div>
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-4 md:py-5">
                         <img className="aspect-[640/860] rounded-lg" src="https://framerusercontent.com/images/wPDEhg38h4WQVNS9eUSBxgNyprc.jpg?width=770&height=992" alt="" />
                         <div className="flex flex-col gap-1">
                             <p className="font-semibold">Mar Albiol</p>
                             <p>Managing Director</p>
                         </div>
                     </div>
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-4 md:py-5">
                         <img className="aspect-[640/860] rounded-lg" src="https://framerusercontent.com/images/IHNhZ3uY4x2aAia8ferpm7ESIw.jpg?width=770&height=992" alt="" />
                         <div className="flex flex-col gap-1">
                             <p className="font-semibold">Estrella Gracia</p>
                             <p>Designer</p>
                         </div>
                     </div>
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-4 md:py-5">
                         <img className="aspect-[640/860] rounded-lg" src="https://framerusercontent.com/images/lslVPZTG4nhntKXLUuntwdGI3k.jpg?width=770&height=992" alt="" />
                         <div className="flex flex-col gap-1">
                             <p className="font-semibold">Kevin van der Wijst</p>
@@ -332,7 +367,7 @@ export default function About () {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col py-20">
+            <div className="flex flex-col py-20 md:px-60">
                 <div className="flex flex-col gap-6 pl-8 pr-10">
                     <h2 className="text-[35px] font-semibold">
                         Community
@@ -341,30 +376,30 @@ export default function About () {
                         Communities are fundamental to great experiences. Whether we’re engaging with people and initiatives around us, connecting with the design community in the virtual space, or annually dedicating some of our time to providing services to charitable organizations—we like to give back.
                     </p>
                 </div>
-                <div className="flex flex-row gap-2 pt-10 pl-8 pr-10 items-center justify-center">
+                <div className="flex flex-row gap-2 pt-10 pl-8 pr-10 md:px-8 items-center md:items-start justify-center md:justify-start">
                     {items.map((item) => (
                         <div
                             key={item.id}
                             className="relative overflow-x-hidden rounded-2xl"
                         >
-                            <p className="bar bg-slate-700 absolute -left-10 px-5 py-1 rounded-2xl"></p>
+                            <p className="bar bg-slate-700 absolute -left-10 md:-left-16 px-5 md:px-8 py-1 rounded-2xl"></p>
 
-                            <p className="bg-slate-300 px-5 py-1"></p>
+                            <p className="bg-slate-300 px-5 md:px-8 py-1"></p>
                         </div>
                     ))}
                 </div>
-                <div className="relative py-10 h-[600px]">
+                <div className="relative py-10 h-[600px] md:h-[700px]">
                     {items.map((item, index) => (
                         <div
                             key={item.id}
                             id={`item${item.id}`}
-                            className={`item absolute w-full px-10 ${
+                            className={`item absolute w-full px-10 md:px-8 ${
                                 index !== 0 ? "opacity-0" : ""
                             }`}
                         >
-                            <div className="flex flex-col rounded-2xl items-center w-full gap-3">
-
-                                <div className="w-full aspect-square max-w-[350px] overflow-hidden rounded-2xl">
+                            <div className="flex flex-col rounded-2xl items-center md:items-start md:relative w-full gap-3">
+                                <img className="hidden md:block md:absolute w-32 right-40 top-[450px]" src="https://framerusercontent.com/images/ulqG2xXxRRX7rnPnEXctaYgE.png?width=702&height=520" alt="" />
+                                <div className="w-full aspect-square max-w-[350px] md:max-w-[500px] overflow-hidden rounded-2xl">
                                     {item.type === "video" ? (
                                         <video
                                             className="w-full h-full object-cover"
@@ -383,12 +418,12 @@ export default function About () {
                                     )}
                                 </div>
 
-                                <div className="flex flex-col gap-3 items-start text-start w-full max-w-[350px]">
+                                <div className="flex flex-col gap-3 items-start text-start w-full max-w-[350px] md:max-w-[500px]">
                                     <p className="text-[22px] font-semibold">
                                         {item.title}
                                     </p>
 
-                                    <p className="text-[#505451] text-[20px] pr-10">
+                                    <p className="text-[#505451] text-[20px] pr-10 md:pr-0">
                                         {item.description}
                                     </p>
 
@@ -410,18 +445,20 @@ export default function About () {
                     ))}
                 </div>
             </div>
-            <div className="bg-[#abe8e8] py-10 flex flex-col items-center justify-center">
-                <div className="flex flex-col gap-6 max-w-[300px] items-start justify-start">
-                    <img className="w-24" src="/world-logo.png" alt="" />
-                    <div className="flex flex-col gap-5">
-                        <h3 className="text-[28px] font-semibold">Design for change</h3>
-                        <p className="text-[#080a0ccc] text-[18px]">Once a year, we like to dedicate our time to providing services to non-profit organizations or social good projects. With this initiative we aim to make design more accessible to organizations positively impacting the world.</p>
-                    </div>
-                    <div className="flex flex-row items-center justify-center gap-4">
-                        <div className="bg-white flex justify-center items-center w-4 h-4 mt-1 rounded-full">
-                            <div className="bg-red-500 w-3 h-3 rounded-full"></div>
+            <div className="relative md:h-[600px]">
+                <div className="bg-[#abe8e8] md:rounded-[40px] md:absolute md:right-64 md:px-10 py-10 flex flex-col items-center justify-center">
+                    <div className="flex flex-col gap-6 max-w-[300px] md:max-w-[350px] items-start justify-start">
+                        <img className="w-24" src="/world-logo.png" alt="" />
+                        <div className="flex flex-col gap-5">
+                            <h3 className="text-[28px] md:text-[32px] font-semibold md:font-bold">Design for change</h3>
+                            <p className="text-[#080a0ccc] text-[18px] md:text-[19px]">Once a year, we like to dedicate our time to providing services to non-profit organizations or social good projects. With this initiative we aim to make design more accessible to organizations positively impacting the world.</p>
                         </div>
-                        <p className="text-[17px] font-semibold">Currently closed for applications</p>
+                        <div className="flex flex-row items-center justify-center gap-4">
+                            <div className="bg-white flex justify-center items-center w-4 h-4 mt-1 rounded-full">
+                                <div className="bg-red-500 w-3 h-3 rounded-full"></div>
+                            </div>
+                            <p className="text-[17px] md:text-[19px] font-semibold">Currently closed for applications</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -450,29 +487,31 @@ export default function About () {
                 </div>
             </div>
             {/* Desktop */}
-            <div className="hidden bg-[#fcc113] md:relative md:flex flex-col items-center w-full py-10 pl-6 pr-10 gap-8">
-                <h2 className="text-[40px] pr-36 font-semibold max-w-[700px]">Stay connected with updates, insights, and inspiration.</h2>
-                <div className="flex flex-row gap-6">
-                    <div className="w-[300px] h-[550px] rounded-xl">
-                        <video loop muted autoPlay className="rounded-2xl" src="https://framerusercontent.com/assets/7lIGZQ6m8lkueVE4gq0N7vp8aRM.mp4"></video>
-                        <button className="absolute top-[670px] text-white font-semibold text-md bg-slate-400/60 mx-3 rounded-sm px-4 py-2">@gusta.studio</button>
+            <div className="hidden md:flex items-center justify-center">
+                <div className="hidden bg-[#fcc113] md:relative md:flex flex-col items-center w-[800px] py-10 pl-6 pr-10 gap-8">
+                    <h2 className="text-[40px] pr-36 font-semibold max-w-[700px]">Stay connected with updates, insights, and inspiration.</h2>
+                    <div className="flex flex-row gap-6">
+                        <div className="w-[300px] h-[550px] rounded-xl">
+                            <video loop muted autoPlay className="rounded-2xl" src="https://framerusercontent.com/assets/7lIGZQ6m8lkueVE4gq0N7vp8aRM.mp4"></video>
+                            <button className="absolute top-[670px] text-white font-semibold text-md bg-slate-400/60 mx-3 rounded-sm px-4 py-2">@gusta.studio</button>
+                        </div>
+                        <div className="flex items-end">
+                            <img className="w-[400px] rounded-full" src="stay-connected.avif" alt="" />
+                        </div>
                     </div>
-                    <div className="flex items-end">
-                        <img className="w-[400px] rounded-full" src="stay-connected.avif" alt="" />
-                    </div>
-                </div>
-                <div className="hidden md:relative md:flex md:flex-col max-w-[700px] rounded-[60px] py-16 px-6 gap-10 text-center bg-[#fff1d6]">
-                    <img className="absolute w-28 -top-11 right-6" src="https://framerusercontent.com/images/pqmEbEHZ6IodkvP01Yoz5uBYu9U.png?width=2704&height=2133" alt="" />
-                    <h2 className="text-6xl font-semibold">The Socarrat</h2>
-                    <p className="text-lg px-40">Our newsletter with a digestible selection of inspiring finds. Sent every month, from our screen to yours.</p>
-                    <div className="flex flex-row gap-6 justify-center items-center">
-                        <button className="bg-black text-white text-lg font-bold px-6 py-3 rounded-3xl">
-                            Subscribe
-                        </button>
-                        <Link className="flex flex-row text-xl gap-4">
-                            <p className="font-semibold">Previous issues</p>
-                            <p>{`>`}</p>
-                        </Link>
+                    <div className="hidden md:relative md:flex md:flex-col max-w-[700px] rounded-[60px] py-16 px-6 gap-10 text-center bg-[#fff1d6]">
+                        <img className="absolute w-28 -top-11 right-6" src="https://framerusercontent.com/images/pqmEbEHZ6IodkvP01Yoz5uBYu9U.png?width=2704&height=2133" alt="" />
+                        <h2 className="text-6xl font-semibold">The Socarrat</h2>
+                        <p className="text-lg px-40">Our newsletter with a digestible selection of inspiring finds. Sent every month, from our screen to yours.</p>
+                        <div className="flex flex-row gap-6 justify-center items-center">
+                            <button className="bg-black text-white text-lg font-bold px-6 py-3 rounded-3xl">
+                                Subscribe
+                            </button>
+                            <Link className="flex flex-row text-xl gap-4">
+                                <p className="font-semibold">Previous issues</p>
+                                <p>{`>`}</p>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
