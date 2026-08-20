@@ -36,7 +36,7 @@ export default function Footer() {
                     <Link to={`/work/all`}>Work</Link>
                     <Link to={`/services`}>Services</Link>
                     <Link to={`/about`}>About</Link>
-                    <button>Contact</button>
+                    <Link to={`/contact`}>Contact</Link>
                     <div className="flex flex-col text-[#91948fbf] items-start text-xl">
                         <button>FAQ</button>
                         <button>Playground</button>

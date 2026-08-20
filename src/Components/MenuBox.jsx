@@ -131,7 +131,7 @@ export default function MenuBox() {
                             </Link>
 
                             <Link to="/about" className="buttons btn text-center">About</Link>
-                            <button className="buttons btn">Contact</button>
+                            <Link to="/contact" className="buttons btn text-center">Contact</Link>
                         </div>
 
                         <div className="flex flex-col gap-2 text-[#5e605cbf] md:text-[#868984bf] py-8 items-center md:items-start md:px-10 text-md">
