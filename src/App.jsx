@@ -4,10 +4,13 @@ import Work from "./Pages/Work"
 import Services from "./Pages/Services"
 import About from "./Pages/About"
 import Contact from "./Pages/Contact"
+import Playground from "./Pages/Playground"
+import Cursor from "./Components/Cursor"
 
 function App() {
 
   return (
+    <>
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<HomePage />} />
@@ -15,8 +18,12 @@ function App() {
       <Route path="/services" element={<Services />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/playground" element={<Playground />} />
     </Routes>
     </BrowserRouter>
+
+    <Cursor />
+    </>
   )
 }
 

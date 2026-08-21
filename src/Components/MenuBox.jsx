@@ -134,8 +134,8 @@ export default function MenuBox() {
                             <Link to="/contact" className="buttons btn text-center">Contact</Link>
                         </div>
 
-                        <div className="flex flex-col gap-2 text-[#5e605cbf] md:text-[#868984bf] py-8 items-center md:items-start md:px-10 text-md">
-                            <button className="buttons">Playground</button>
+                        <div className="flex flex-col gap-2 text-[#5e605cbf] md:text-[#868984bf] py-8 items-center text-center md:items-start md:px-10 text-md">
+                            <Link to={`/playground`} className="buttons">Playground</Link>
                             <button className="buttons">Shop</button>
                             <button className="buttons">Newsletter</button>
                         </div>

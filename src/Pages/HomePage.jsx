@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import '../index.css'
 import { Link } from "react-router-dom"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -59,24 +60,27 @@ export default function HomePage() {
     }, [])
 
     const handleEnter = () => {
-        gsap.to("#paragraph", {
+        gsap.to(".paragraph", {
             backgroundColor: "#fff1d6",
             overwrite:true
         })
     }
 
     const handleLeave = () => {
-        gsap.to("#paragraph", {
+        gsap.to(".paragraph", {
             backgroundColor: "white",
             overwrite:true
         })
     }
 
     return (
+        <>
         <div className="flex flex-col">
             <Logo />
             <div className="flex flex-col py-32 items-center overflow-x-hidden">
-                <h1 className="font-bold px-4 py-2 text-center text-4xl md:text-7xl md:max-w-[700px] max-w-[400px]">Forward Through Digital Design</h1>
+                <div className="px-4 py-2 text-center md:max-w-[700px] max-w-[400px] bg-white">
+                    <h1 className="font-bold text-4xl md:text-7xl">Forward Through Digital Design</h1>
+                </div>
                 {/* Mobile */}
                 <div className="w-full h-[624px] relative md:hidden">
                     <div id="content1" className="opacity-0 absolute left-1/2 -translate-x-1/2 w-[550px] h-[624px]">
@@ -188,7 +192,7 @@ export default function HomePage() {
 
                     </div>
                 </div>
-                <div className="flex flex-col py-20 px-10 md:text-center md:px-64 text-4xl md:text-5xl font-normal gap-8 md:gap-14">
+                <div className="flex flex-col py-20 px-10 bg-white md:text-center md:px-64 text-4xl md:text-5xl font-normal gap-8 md:gap-14">
                     <p>We are Gusta, a design studio rooted in craft, curosity, and care.</p>
                     <p>We design Products, brands, and websites that people love, helping businesses thrive.</p>
                 </div>
@@ -432,7 +436,7 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
-            <div id="paragraph" className="flex flex-col w-full pt-14">
+            <div className="paragraph flex flex-col w-full pt-14">
 
                 {/* ================= TOP IMAGE SECTION ================= */}
                 <div className="relative w-full h-[350px] md:max-w-[1000px] md:mx-auto">
@@ -506,7 +510,7 @@ export default function HomePage() {
 
                     <div className="flex flex-col items-center py-10 gap-6 max-w-[750px] px-6">
 
-                        <h2 className="text-3xl md:text-4xl font-normal text-center">
+                        <h2 className="text-3xl md:text-4xl bg-white font-normal text-center">
                             We're the creative link between people, business, and technology.
                         </h2>
 
@@ -593,7 +597,7 @@ export default function HomePage() {
             </div>
 
             {/* Mobile */}
-            <div id="paragraph" onPointerEnter={handleEnter} onPointerLeave={handleLeave} className="flex flex-col pt-10 items-center gap-10 bg-white md:hidden">
+            <div onPointerEnter={handleEnter} onPointerLeave={handleLeave} className="paragraph flex flex-col pt-10 items-center gap-10 bg-white md:hidden">
                 <img className="w-64 h-40 rounded-3xl items-center" src="get-to-know-us-1.avif" alt="" />
                 <div className="flex flex-col items-start px-6 gap-10 max-w-[400px]">
                     <h2 className="text-3xl">We’re a small team of versatile creatives, committed to doing good work while having fun.</h2>
@@ -614,7 +618,7 @@ export default function HomePage() {
                 </div>
             </div>
             {/* Desktop */}
-            <div id="paragraph" onPointerEnter={handleEnter} onPointerLeave={handleLeave} className="hidden md:flex md:flex-col pt-10 items-center relative gap-24 bg-white">
+            <div onPointerEnter={handleEnter} onPointerLeave={handleLeave} className="paragraph hidden md:flex md:flex-col pt-10 items-center relative gap-24 bg-white">
                 <div className="flex relative right-14 w-full px-8 max-w-[600px]">
                     <img className="w-[350px] rounded-2xl" src="get-to-know-us-2.avif" alt="" />
                     <img className="absolute w-28 -bottom-8 right-44" src="https://framerusercontent.com/images/X1NF4nBj3ynPnt5C5wXPCQ1AU.png?width=270&height=209" alt="" />
@@ -675,5 +679,6 @@ export default function HomePage() {
 
             <MenuBox />
         </div>
+        </>
     )
 }

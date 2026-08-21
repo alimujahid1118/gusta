@@ -19,3 +19,7 @@
         height: 500px !important;
     }
 }
+
+body {
+    cursor: none;
+}

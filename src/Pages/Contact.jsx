@@ -206,7 +206,7 @@ export default function Contact() {
                     <button>Contact</button>
                     <div className="flex flex-col text-[#91948fbf] items-start text-xl">
                         <button>FAQ</button>
-                        <button>Playground</button>
+                        <Link to={`/playground`}>Playground</Link>
                         <button>Shop</button>
                     </div>
                 </div>
