@@ -279,7 +279,7 @@ export default function Services() {
     }, []);
 
     return (
-        <div className="overflow-x-hidden overflow-y-visible">
+        <div className="overflow-x-hidden overflow-y-visible bg-white">
             <Logo />
             <div className="flex flex-col">
                 <div className="flex flex-col gap-6 pt-40 px-4">

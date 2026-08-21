@@ -11,23 +11,31 @@ export default function Cursor() {
 
             const { clientX, clientY } = event
 
-            gsap.to(cursor, {
-                x: clientX - 20,
-                y: clientY - 20,
-                duration: 0.2,
-                ease: "power2.out",
-            })
-
             const element = document.elementFromPoint(
                 clientX,
                 clientY
             )
+            const menu = element?.closest("#menu")
+            const logo = element?.closest("#logo")
 
             const shouldInvert = element?.closest(
-                "img, video, p, h1, h2, h3, h4"
+                "img, video, p, h1, h2, h3, h4, span"
             )
 
-            if (shouldInvert) {
+            const shouldScale = shouldInvert || menu || logo
+
+            gsap.to(cursor, {
+                x: clientX - 20,
+                y: clientY - 20,
+                scale: shouldScale ? 2 : 1,
+                duration: 0.2,
+                ease: "power2.out",
+                overwrite: true
+            })
+
+            const webLogo = document.querySelector("#logo")
+
+            if (shouldInvert || webLogo) {
                 cursor.classList.add("bg-white")
                 cursor.classList.add("mix-blend-difference")
                 cursor.classList.remove("bg-black")
@@ -35,6 +43,14 @@ export default function Cursor() {
                 cursor.classList.add("bg-black")
                 cursor.classList.remove("bg-white")
                 cursor.classList.remove("mix-blend-difference")
+            }
+
+            const menuBox = document.querySelector("#menuBox")
+
+            if (menuBox) {
+                cursor.classList.add("bg-white")
+                cursor.classList.add("mix-blend-difference")
+                cursor.classList.remove("bg-black")
             }
         }
 

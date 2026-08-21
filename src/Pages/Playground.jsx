@@ -98,7 +98,7 @@ export default function Playground () {
     }, []);
 
     return (
-        <div>
+        <div className="bg-white">
             <Logo />
 
             <div className="flex flex-col gap-4 pt-32 pb-10 px-6 md:px-12">

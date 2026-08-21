@@ -74,12 +74,12 @@ export default function MenuBox() {
     return (
         <>
             {/* Menu */}
-            <div className="fixed z-50 bottom-6 left-1/2 -translate-x-1/2 md:top-6 md:bottom-auto md:left-auto md:right-11 md:translate-x-0">
+            <div id="menuLogo" className="fixed z-50 bottom-6 left-1/2 cursor-none -translate-x-1/2 md:top-6 md:bottom-auto md:left-auto md:right-11 md:translate-x-0">
 
                 {/* Menu button */}
                 <button
                     onClick={handleClick}
-                    className={`relative z-50 px-4 py-3 rounded-full transition-all duration-500 ${
+                    className={`relative cursor-none z-50 px-4 py-3 rounded-full transition-all duration-500 ${
                         menuBox
                             ? "bg-[#d6dcd3bf] md:bg-zinc-700 md:text-white"
                             : "bg-white text-black md:bg-[#e7efe3bf] shadow-xl md:shadow-none"
